@@ -2,5 +2,5 @@
 
 require '../classes/Steel/Steel.php';
 
-$backbones = new BackBones\BackBones;
-$backbones->init();
+$steel = new Steel\Steel;
+$steel->init();
