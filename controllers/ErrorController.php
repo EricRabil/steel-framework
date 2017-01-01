@@ -10,7 +10,7 @@ class ErrorController implements IErrorController {
         3 => 'internal_error'
     );
 
-    public function __construct(\BackBones\MVC\MVCBundle $bundle) {
+    public function __construct(\Steel\MVC\MVCBundle $bundle) {
         $this->model = $bundle->get_model();
         $this->bundle = $bundle;
     }

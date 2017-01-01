@@ -5,12 +5,12 @@ class ErrorModel implements IErrorModel {
     private $errorText;
     private $errorTitle;
     private $errorType = "error";
-    public $backbones;
+    public $steel;
 
-    public function __construct(\BackBones\BackBones $backbones) {
+    public function __construct(\BackBones\BackBones $steel) {
         $this->errorText = "Something went wrong!";
         $this->errorTitle = "Uh-oh.";
-        $this->backbones = $backbones;
+        $this->steel = $steel;
     }
 
     public function get_error_text() {

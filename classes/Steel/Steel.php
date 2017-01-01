@@ -1,8 +1,8 @@
 <?php
 
-namespace BackBones;
+namespace Steel;
 
-class BackBones {
+class Steel {
 
     private $mvcMap = array();
     private $components;
@@ -12,19 +12,19 @@ class BackBones {
     private $initialized = false;
 
     private function set_mvc_map() {
-        $this->mvcMap['index'] = new \BackBones\MVC\MVCIdentifier('MVC-INDEX', 'index', 'IndexModel', 'IndexView', 'IndexController', array(), array());
-        $this->mvcMap['example'] = new \BackBones\MVC\MVCIdentifier('MVC-EXAMPLE', 'example', 'ExampleModel', 'ExampleView', 'ExampleController', array(), array());
+        $this->mvcMap['index'] = new \Steel\MVC\MVCIdentifier('MVC-INDEX', 'index', 'IndexModel', 'IndexView', 'IndexController', array(), array());
+        $this->mvcMap['example'] = new \Steel\MVC\MVCIdentifier('MVC-EXAMPLE', 'example', 'ExampleModel', 'ExampleView', 'ExampleController', array(), array());
     }
 
     public function init() {
         if(!$this->initialized){
             $this->path = trim(preg_replace("/[^a-z0-9_\\/]+/i", "", (isset($_GET['method'])) ? $_GET['method'] : 'index'), '/');
             require dirname(__FILE__) . '/Settings.php';
-            $conf = new \BackBones\Settings();
+            $conf = new \Steel\Settings();
             $conf->setup();
             $this->config = $conf->getConfig();
             $this->require_interfaces();
-            if ($this->config['backbones']['autoinclude']) {
+            if ($this->config['steel']['autoinclude']) {
                 $this->require_includes();
             }
             $this->set_mvc_map();
@@ -71,7 +71,7 @@ class BackBones {
             $this->display_error(2, array('path' => $this->path));
         }
         $mvcID = $this->mvcMap[$class];
-        $mvc = new \BackBones\MVC\MVCBundle($this, $mvcID);
+        $mvc = new \Steel\MVC\MVCBundle($this, $mvcID);
         $status = $mvc->runMVC();
         if ($status != 1) {
             switch ($status) {
@@ -90,8 +90,8 @@ class BackBones {
     }
 
     public function display_error($int, $args) {
-        $errorID = new \BackBones\MVC\MVCIdentifier('MVC-ERR', 'error', 'ErrorModel', 'ErrorView', 'ErrorController', array('__construct', 'main'), array(dirname(__FILE__) . '/../../models/IErrorModel.php', dirname(__FILE__) . '/../../controllers/IErrorController.php'));
-        $mvc = new \BackBones\MVC\MVCBundle($this, $errorID);
+        $errorID = new \Steel\MVC\MVCIdentifier('MVC-ERR', 'error', 'ErrorModel', 'ErrorView', 'ErrorController', array('__construct', 'main'), array(dirname(__FILE__) . '/../../models/IErrorModel.php', dirname(__FILE__) . '/../../controllers/IErrorController.php'));
+        $mvc = new \Steel\MVC\MVCBundle($this, $errorID);
         $mvc->init();
         $mvc->get_controller()->parse_error($int, $args);
         $mvc->get_view()->render();

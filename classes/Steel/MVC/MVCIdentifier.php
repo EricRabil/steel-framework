@@ -1,6 +1,6 @@
 <?php
 
-namespace BackBones\MVC;
+namespace Steel\MVC;
 
 class MVCIdentifier {
 

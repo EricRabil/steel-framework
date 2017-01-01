@@ -6,7 +6,7 @@ class ExampleView implements IView {
     private $model;
     private $context = array();
 
-    public function __construct(\BackBones\MVC\MVCBundle $bundle) {
+    public function __construct(\Steel\MVC\MVCBundle $bundle) {
         $this->bundle = $bundle;
         $this->model = $this->bundle->get_model();
     }

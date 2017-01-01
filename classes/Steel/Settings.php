@@ -20,22 +20,22 @@
  * Testing Testing 123 would become testing_testing_123
  */
 
-namespace BackBones;
+namespace Steel;
 
 class Settings {
 
     private $config = array();
 
     public function setup() {
-        $this->config['backbones'] = array();
-        $this->config['backbones']['version'] = 2.0;
-        $this->config['backbones']['type'] = "canary";
+        $this->config['steel'] = array();
+        $this->config['steel']['version'] = 2.0;
+        $this->config['steel']['type'] = "canary";
         /*
          * Enabled by default
          * Automatically include files in the 'include' directory. If disabled, make sure you inject
          * code to require your files.
          */
-        $this->config['backbones']['autoinclude'] = true;
+        $this->config['steel']['autoinclude'] = true;
 
         $this->config['general'] = array();
         $this->config['general']['host'] = 'http://localhost';

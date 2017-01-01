@@ -2,13 +2,13 @@
 
 class ExampleModel implements IModel {
     
-    public $backbones;
+    public $steel;
     
     public $exampleTitle;
     public $exampleMessage;
 
-    public function __construct(\BackBones\BackBones $backbones) {
-        $this->backbones = $backbones;
+    public function __construct(\BackBones\BackBones $steel) {
+        $this->steel = $steel;
     }
 
 }
