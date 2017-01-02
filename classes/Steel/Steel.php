@@ -27,6 +27,11 @@ class Steel {
             $conf = new \Steel\Settings();
             $conf->setup();
             $this->config = $conf->getConfig();
+            if($this->config['database']['enabled']){
+                $this->database = new Connection($this->config['database']);
+            }else{
+                $this->database = false;
+            }
             $this->require_interfaces();
             if ($this->config['steel']['autoinclude']) {
                 $this->require_includes();
