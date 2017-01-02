@@ -39,7 +39,15 @@ class Settings {
 
         $this->config['general'] = [];
         $this->config['general']['host'] = 'http://localhost';
+        
         $this->config['database'] = [];
+        //Set to false if you want to use your own database connection methods
+        $this->config['database']['enabled'] = true;
+        $this->config['database']['username'] = 'steel';
+        $this->config['database']['password'] = 'steel';
+        $this->config['database']['ip'] = '127.0.0.1';
+        $this->config['database']['port'] = '3306';
+        $this->config['database']['dbname'] = 'steel';
     }
 
     public function getConfig() {
