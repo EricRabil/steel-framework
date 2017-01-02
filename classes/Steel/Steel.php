@@ -1,6 +1,9 @@
 <?php
-
 namespace Steel;
+
+require_once 'autoload.php';
+
+use Steel\Database\Connection;
 
 class Steel {
 
@@ -21,7 +24,6 @@ class Steel {
     public function init() {
         if(!$this->initialized){
             $this->path = trim(preg_replace("/[^a-z0-9_\\/]+/i", "", (isset($_GET['method'])) ? $_GET['method'] : 'index'), '/');
-            require dirname(__FILE__) . '/Settings.php';
             $conf = new \Steel\Settings();
             $conf->setup();
             $this->config = $conf->getConfig();
@@ -58,8 +60,6 @@ class Steel {
         foreach ($include as $file) {
             require dirname(__FILE__) . "/../../include/" . $file;
         }
-        require dirname(__FILE__) . '/MVC/MVCBundle.php';
-        require dirname(__FILE__) . '/MVC/MVCIdentifier.php';
     }
 
     public function get_mvc_map() {
