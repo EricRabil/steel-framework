@@ -7,7 +7,7 @@ class ErrorModel implements IErrorModel {
     private $errorType = "error";
     public $steel;
 
-    public function __construct(\BackBones\BackBones $steel) {
+    public function __construct(\Steel\Steel $steel) {
         $this->errorText = "Something went wrong!";
         $this->errorTitle = "Uh-oh.";
         $this->steel = $steel;

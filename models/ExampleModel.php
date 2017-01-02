@@ -7,7 +7,7 @@ class ExampleModel implements IModel {
     public $exampleTitle;
     public $exampleMessage;
 
-    public function __construct(\BackBones\BackBones $steel) {
+    public function __construct(\Steel\Steel $steel) {
         $this->steel = $steel;
     }
 

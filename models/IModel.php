@@ -2,5 +2,5 @@
 
 interface IModel {
 
-    public function __construct(\BackBones\BackBones $steel);
+    public function __construct(\Steel\Steel $steel);
 }
