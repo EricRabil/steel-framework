@@ -12,7 +12,7 @@ class MVCIdentifier {
     private $forbiddenPaths;
     private $dependencies;
 
-    public function __construct($uid, $path, $model, $view, $controller, $forbidden = array('__construct', 'main'), $dependencies = array()) {
+    public function __construct($uid, $path, $model, $view, $controller, $forbidden = array('__construct', 'main'), $dependencies = []) {
         $this->uid = $uid;
         $this->path = $path;
         $this->modelName = $model;

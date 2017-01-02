@@ -24,11 +24,11 @@ namespace Steel;
 
 class Settings {
 
-    private $config = array();
+    private $config = [];
 
     public function setup() {
-        $this->config['steel'] = array();
         $this->config['steel']['version'] = 2.0;
+        $this->config['steel'] = [];
         $this->config['steel']['type'] = "canary";
         /*
          * Enabled by default
@@ -37,8 +37,9 @@ class Settings {
          */
         $this->config['steel']['autoinclude'] = true;
 
-        $this->config['general'] = array();
+        $this->config['general'] = [];
         $this->config['general']['host'] = 'http://localhost';
+        $this->config['database'] = [];
     }
 
     public function getConfig() {

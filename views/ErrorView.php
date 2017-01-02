@@ -4,7 +4,7 @@ class ErrorView implements IView {
 
     private $bundle;
     private $model;
-    private $context = array();
+    private $context = [];
 
     public function __construct(\BackBones\MVC\MVCBundle $bundle) {
         $this->bundle = $bundle;

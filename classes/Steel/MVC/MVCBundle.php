@@ -8,7 +8,7 @@ class MVCBundle {
     private $model;
     private $view;
     private $controller;
-    private $params = array();
+    private $params = [];
     private $initialized = false;
     private $components;
     private $steel;

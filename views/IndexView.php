@@ -4,7 +4,7 @@ class IndexView implements IView {
 
     private $bundle;
     private $model;
-    private $context = array();
+    private $context = [];
 
     public function __construct(\Steel\MVC\MVCBundle $bundle) {
         $this->bundle = $bundle;

@@ -4,7 +4,7 @@ namespace Steel;
 
 class Steel {
 
-    private $mvcMap = array();
+    private $mvcMap = [];
     private $components;
     private $path;
     public $config;
@@ -48,7 +48,7 @@ class Steel {
 
     private function require_includes() {
         $files = scandir(dirname(__FILE__) . "/../../include");
-        $include = array();
+        $include = [];
         foreach ($files as $file) {
             $extension = explode('.', $file);
             if (isset($extension[1]) && !empty($extension[1]) && $extension[1] === "php") {
