@@ -10,6 +10,8 @@ class Steel {
     public $config;
     
     private $initialized = false;
+    
+    public $database;
 
     private function set_mvc_map() {
         $this->mvcMap['index'] = new \Steel\MVC\MVCIdentifier('MVC-INDEX', 'index', 'IndexModel', 'IndexView', 'IndexController', array(), array());
