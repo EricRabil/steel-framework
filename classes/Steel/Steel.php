@@ -1,6 +1,8 @@
 <?php
 namespace Steel;
 
+session_start();
+
 require_once 'autoload.php';
 
 use Steel\Database\Connection;
