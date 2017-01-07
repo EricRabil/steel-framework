@@ -56,6 +56,7 @@ class Steel {
             $this->application = new $this->config['steel']['application']['classname']($this);
             if (!is_subclass_of($this->application, 'IApplication')) {
                 echo $this->application->getNameOfClass()." must be implement \Steel\IApplication";
+            $this->application = new $this->config['steel']['application']['fully_qualified_name']($this);
                 exit();
             }
         }else{
