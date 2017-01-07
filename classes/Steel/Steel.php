@@ -53,10 +53,9 @@ class Steel {
     private function use_app_controller(){
         if($this->config['steel']['useApplication']){
             require_once $this->config['steel']['application']['filepath'];
-            $this->application = new $this->config['steel']['application']['classname']($this);
-            if (!is_subclass_of($this->application, 'IApplication')) {
-                echo $this->application->getNameOfClass()." must be implement \Steel\IApplication";
             $this->application = new $this->config['steel']['application']['fully_qualified_name']($this);
+            if (!is_subclass_of($this->application, '\Steel\IApplication')) {
+                echo get_class($this->application)." must be implement \Steel\IApplication";
                 exit();
             }
         }else{
