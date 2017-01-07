@@ -28,7 +28,7 @@ class Settings {
 
     public function setup() {
         $this->config['steel'] = [];
-        $this->config['steel']['version'] = "v1.0-beta2";
+        $this->config['steel']['version'] = "v1.0-beta3";
         $this->config['steel']['type'] = "canary";
         /*
          * Enabled by default
