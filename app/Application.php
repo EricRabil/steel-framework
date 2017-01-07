@@ -7,8 +7,8 @@ class MyCoolApplication implements Steel\IApplication{
     private $bundle;
     private $args;
     
-    private $intercept = array(
-        'mycoolinterceptedpage'
+    private $intercepted_classes = array(
+        'index'
     );
     
     public function __constructor(\Steel\Steel $steel) {
@@ -16,7 +16,7 @@ class MyCoolApplication implements Steel\IApplication{
     }
 
     public function call(\Steel\MVC\MVCBundle $bundle, $arguments) {
-        if(in_array($arguments[0], $this->intercept)){
+        if(in_array($arguments[0], $this->intercepted_classes)){
             $this->bundle = $bundle;
             $this->args = $arguments;
             return true;
