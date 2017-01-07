@@ -97,6 +97,7 @@ class Steel {
         $class = $this->components[0];
         if (!array_key_exists($class, $this->mvcMap)) {
             $this->display_error(2, array('path' => $this->path));
+            return;
         }
         $mvcID = $this->mvcMap[$class];
         $mvc = new \Steel\MVC\MVCBundle($this, $mvcID);
@@ -128,7 +129,6 @@ class Steel {
         $mvc->init();
         $mvc->get_controller()->parse_error($int, $args);
         $mvc->get_view()->render();
-        exit();
     }
     
     public function get_path(){
