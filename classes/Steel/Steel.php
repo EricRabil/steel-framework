@@ -41,9 +41,11 @@ class Steel {
                 $this->require_includes();
             }
             $this->set_mvc_map();
+            if($this->config['steel']['useApplication']){
+                $this->use_app_controller();
+            }
             $this->process_request();
             $this->initialized = true;
-            
         }
     }
     
