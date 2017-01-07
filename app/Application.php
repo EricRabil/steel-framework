@@ -14,8 +14,13 @@ class MyCoolApplication implements \Steel\IApplication{
     public function __constructor(\Steel\Steel $steel) {
         $this->steel = $steel;
     }
+    
+    public function on_load() {
+        //On Load Functions
+    }
 
     public function call(\Steel\MVC\MVCBundle $bundle, $arguments) {
+        $this->on_load();
         if(in_array($arguments[0], $this->intercepted_classes)){
             $this->bundle = $bundle;
             $this->args = $arguments;
