@@ -1,8 +1,6 @@
 <?php
 namespace Steel;
 
-session_start();
-
 require_once 'autoload.php';
 
 use Steel\Database\Connection;
@@ -30,6 +28,9 @@ class Steel {
             $this->path = trim(preg_replace("/[^a-z0-9_\\/]+/i", "", (isset($_GET['method'])) ? $_GET['method'] : 'index'), '/');
             $conf = new \Steel\Settings();
             $conf->setup();
+            if($this->config['steel']['useSessions']){
+                session_start();
+            }
             $this->config = $conf->getConfig();
             if($this->config['database']['enabled']){
                 $this->database = new Connection($this->config['database']);

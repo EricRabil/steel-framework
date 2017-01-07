@@ -38,6 +38,8 @@ class Settings {
         $this->config['steel']['autoinclude'] = true;
         $this->config['steel']['useApplication'] = false;
         $this->config['steel']['application'] = array('filepath' => dirname(__FILE__).'/../../app/Application.php', 'classname' => 'Application');
+        
+        $this->config['steel']['useSessions'] = true;
 
         $this->config['general'] = [];
         $this->config['general']['host'] = 'http://localhost';
