@@ -24,5 +24,9 @@ class MyCoolApplication implements Steel\IApplication{
             return false;
         }
     }
+    
+    public function intercepts($classname){
+        return in_array($classname, $intercepted_classes);
+    }
 
 }
