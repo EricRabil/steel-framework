@@ -1,7 +1,7 @@
 <?php
 namespace MyCoolApplicationNamespace;
 
-class MyCoolApplication implements Steel\IApplication{
+class MyCoolApplication implements \Steel\IApplication{
     
     private $steel;
     private $bundle;
