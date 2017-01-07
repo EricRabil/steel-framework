@@ -36,6 +36,8 @@ class Settings {
          * code to require your files.
          */
         $this->config['steel']['autoinclude'] = true;
+        $this->config['steel']['useApplication'] = true;
+        $this->config['steel']['application'] = array('filepath' => dirname(__FILE__).'/../../app/Application.php', 'classname' => 'Application');
 
         $this->config['general'] = [];
         $this->config['general']['host'] = 'http://localhost';

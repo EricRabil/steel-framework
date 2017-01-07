@@ -16,6 +16,8 @@ class Steel {
     
     private $initialized = false;
     
+    public $application = false;
+    
     public $database;
 
     private function set_mvc_map() {
@@ -41,6 +43,20 @@ class Steel {
             $this->set_mvc_map();
             $this->process_request();
             $this->initialized = true;
+            
+        }
+    }
+    
+    private function use_app_controller(){
+        if($this->config['steel']['useApplication']){
+            require_once $this->config['steel']['application']['filepath'];
+            $this->application = new $this->config['steel']['application']['classname']($this);
+            if (!is_subclass_of($this->application, 'IApplication')) {
+                echo $this->application->getNameOfClass()." must be implement \Steel\IApplication";
+                exit();
+            }
+        }else{
+            return false;
         }
     }
 
@@ -81,16 +97,21 @@ class Steel {
         }
         $mvcID = $this->mvcMap[$class];
         $mvc = new \Steel\MVC\MVCBundle($this, $mvcID);
-        $status = $mvc->runMVC();
-        if ($status != 1) {
-            switch ($status) {
-                case 2:
-                    $this->display_error(2, array('path' => $this->path));
-                    break;
-                case 3:
-                    $this->display_error(3, array('message' => "MVC " + $mvcID->get_uid + " has already been executed."));
-                    break;
+        $intercepted = $this->application->call($mvc, $this->components);
+        if(!$intercepted){
+            $status = $mvc->runMVC();
+            if ($status != 1) {
+                switch ($status) {
+                    case 2:
+                        $this->display_error(2, array('path' => $this->path));
+                        break;
+                    case 3:
+                        $this->display_error(3, array('message' => "MVC " + $mvcID->get_uid + " has already been executed."));
+                        break;
+                }
             }
+        }else{
+            return;
         }
     }
 
