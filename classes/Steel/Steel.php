@@ -97,7 +97,7 @@ class Steel {
         }
         $mvcID = $this->mvcMap[$class];
         $mvc = new \Steel\MVC\MVCBundle($this, $mvcID);
-        $intercepted = $this->application->call($mvc, $this->components);
+        $intercepted = ($this->config['steel']['useApplication']) ? $this->application->call($mvc, $this->components) : false;
         if(!$intercepted){
             $status = $mvc->runMVC();
             if ($status != 1) {
