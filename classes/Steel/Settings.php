@@ -46,7 +46,7 @@ class Settings {
         
         $this->config['database'] = [];
         //Set to false if you want to use your own database connection methods
-        $this->config['database']['enabled'] = true;
+        $this->config['database']['enabled'] = false;
         $this->config['database']['username'] = 'steel';
         $this->config['database']['password'] = 'steel';
         $this->config['database']['ip'] = '127.0.0.1';
