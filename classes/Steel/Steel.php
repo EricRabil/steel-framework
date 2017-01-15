@@ -14,6 +14,10 @@ class Steel {
     
     private $initialized = false;
     
+    private $dir;
+    
+    private $sreheader = "<!-- Steel Runtime Error: ";
+    
     public $application = false;
     
     public $database;
@@ -25,6 +29,7 @@ class Steel {
 
     public function init() {
         if(!$this->initialized){
+        	$this->dir = dirname(__FILE__);
             $this->path = trim(preg_replace("/[^a-z0-9_\\/]+/i", "", (isset($_GET['method'])) ? $_GET['method'] : 'index'), '/');
             $conf = new \Steel\Settings();
             $conf->setup();
@@ -64,28 +69,40 @@ class Steel {
     }
 
     private function require_interfaces() {
-        require dirname(__FILE__) . '/../../models/IModel.php';
-        require dirname(__FILE__) . '/../../controllers/IController.php';
-        require dirname(__FILE__) . '/../../views/IView.php';
+        require $this->dir . '/../../models/IModel.php';
+        require $this->dir . '/../../controllers/IController.php';
+        require $this->dir . '/../../views/IView.php';
         return true;
     }
 
     public function get_config() {
         return $this->config;
     }
+    
+    private function require_include_folder(){
+    	$files = scandir($this->dir . "/../../include");
+    	$include = [];
+    	foreach ($files as $file) {
+    		$extension = explode('.', $file);
+    		if (isset($extension[1]) && !empty($extension[1]) && $extension[1] === "php") {
+    			array_push($include, $file);
+    		}
+    	}
+    	foreach ($include as $file) {
+    		require $this->dir . "/../../include/" . $file;
+    	}
+    }
 
     private function require_includes() {
-        $files = scandir(dirname(__FILE__) . "/../../include");
-        $include = [];
-        foreach ($files as $file) {
-            $extension = explode('.', $file);
-            if (isset($extension[1]) && !empty($extension[1]) && $extension[1] === "php") {
-                array_push($include, $file);
-            }
-        }
-        foreach ($include as $file) {
-            require dirname(__FILE__) . "/../../include/" . $file;
-        }
+    	if(!file_exists($this->dir.'/../../include')){
+    		if(is_writable($this->dir.'/../..') && !mkdir($this->dir.'/../../include', 0755, true)){
+    			echo $this->sreheader.'Failed to create missing \'include\' directory. Check that PHP has the proper execution permissions. -->'.PHP_EOL;
+    		}elseif(is_writable($this->dir.'/../..')){
+    			$this->require_include_folder();
+    		}
+    	}else{
+    		$this->require_include_folder();
+    	}
     }
 
     public function get_mvc_map() {
@@ -124,7 +141,7 @@ class Steel {
     }
 
     public function display_error($int, $args) {
-        $errorID = new \Steel\MVC\MVCIdentifier('MVC-ERR', 'error', 'ErrorModel', 'ErrorView', 'ErrorController', array('__construct', 'main'), array(dirname(__FILE__) . '/../../models/IErrorModel.php', dirname(__FILE__) . '/../../controllers/IErrorController.php'));
+        $errorID = new \Steel\MVC\MVCIdentifier('MVC-ERR', 'error', 'ErrorModel', 'ErrorView', 'ErrorController', array('__construct', 'main'), array($this->dir . '/../../models/IErrorModel.php', $this->dir . '/../../controllers/IErrorController.php'));
         $mvc = new \Steel\MVC\MVCBundle($this, $errorID);
         $mvc->init();
         $mvc->get_controller()->parse_error($int, $args);
