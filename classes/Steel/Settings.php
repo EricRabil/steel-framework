@@ -28,7 +28,7 @@ class Settings {
 
     public function setup() {
         $this->config['steel'] = [];
-        $this->config['steel']['version'] = "v1.0-rc1";
+        $this->config['steel']['version'] = "v1.0-rc2";
         $this->config['steel']['type'] = "release-candidate";
         /*
          * Enabled by default
