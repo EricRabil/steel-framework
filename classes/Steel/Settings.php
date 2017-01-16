@@ -28,8 +28,8 @@ class Settings {
 
     public function setup() {
         $this->config['steel'] = [];
-        $this->config['steel']['version'] = "v1.0-beta3";
-        $this->config['steel']['type'] = "canary";
+        $this->config['steel']['version'] = "v1.0-rc1";
+        $this->config['steel']['type'] = "release-candidate";
         /*
          * Enabled by default
          * Automatically include files in the 'include' directory. If disabled, make sure you inject
@@ -40,6 +40,22 @@ class Settings {
         $this->config['steel']['application'] = array('filepath' => dirname(__FILE__).'/../../app/Application.php', 'fully_qualified_name' => '\MyCoolApplicationNamespace\MyCoolApplication');
         
         $this->config['steel']['useSessions'] = true;
+        
+        $this->config['steel']['useLang'] = false;
+        
+        $this->config['resources'] = array();
+        
+        //SRI IS required. It is not hard to do.
+        
+        $this->config['resources']['css'] = [];
+        $this->config['resources']['css-sri'] = [];
+        
+        $this->config['resources']['js'] = [
+        	'jquery' => "https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"
+        ];
+        $this->config['resources']['js-sri'] = [
+        	'jquery' => "sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"
+        ];
 
         $this->config['general'] = [];
         $this->config['general']['host'] = 'http://localhost';

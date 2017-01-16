@@ -1,1 +1,1 @@
-apigen generate --source ./ --destination docs/api/v1 --template-theme bootstrap --title "Steel Beta 2"
+apigen generate --source ./ --destination docs/api/v2 --template-theme bootstrap --title "Steel 1 RC 1"

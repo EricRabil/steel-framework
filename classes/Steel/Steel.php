@@ -95,9 +95,10 @@ class Steel {
 
     private function require_includes() {
     	if(!file_exists($this->dir.'/../../include')){
-    		if(is_writable($this->dir.'/../..') && !mkdir($this->dir.'/../../include', 0755, true)){
+    		if(!is_writable($this->dir.'/../..')){
     			echo $this->sreheader.'Failed to create missing \'include\' directory. Check that PHP has the proper execution permissions. -->'.PHP_EOL;
-    		}elseif(is_writable($this->dir.'/../..')){
+    		}else{
+    			mkdir($this->dir.'/../../include', 0755, true);
     			$this->require_include_folder();
     		}
     	}else{

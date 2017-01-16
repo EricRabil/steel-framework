@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="robots" content="noindex">
+
+	<title>File classes/Steel/Database/IConnection.php | Steel 1 RC 1</title>
+
+	<link rel="stylesheet" href="resources/bootstrap.min.css?973e37a8502921d56bc02bb55321f45b072b6f71">
+	<link rel="stylesheet" href="resources/style.css?49f43d3208c5d7e33fa16d36107a345bf11cc00d">
+
+</head>
+
+<body>
+	<nav id="navigation" class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href="index.html" class="navbar-brand">Steel 1 RC 1</a>
+			</div>
+			<div class="collapse navbar-collapse">
+
+                <form id="search" class="navbar-form navbar-left" role="search">
+                    <input type="hidden" name="cx" value="">
+                    <input type="hidden" name="ie" value="UTF-8">
+                    <div class="form-group">
+                        <input type="text" name="q" class="search-query form-control" placeholder="Search">
+					</div>
+				</form>
+
+				<ul class="nav navbar-nav">
+					<li>
+<span>Namespace</span>					</li>
+					<li>
+<span>Class</span>					</li>
+
+
+
+
+
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div id="left">
+	<div id="menu">
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+					<li>
+						<a href="namespace-MyCoolApplicationNamespace.html">
+							MyCoolApplicationNamespace						</a>
+							</li>
+					<li>
+						<a href="namespace-None.html">
+							None						</a>
+							</li>
+					<li>
+						<a href="namespace-Steel.html">
+							Steel<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-Steel.Database.html">
+							Database						</a>
+							</li>
+					<li>
+						<a href="namespace-Steel.MVC.html">
+							MVC						</a>
+							</li>
+								</ul></li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-ErrorController.html">ErrorController</a></li>
+				<li><a href="class-ErrorModel.html">ErrorModel</a></li>
+				<li><a href="class-ErrorView.html">ErrorView</a></li>
+				<li><a href="class-ExampleController.html">ExampleController</a></li>
+				<li><a href="class-ExampleModel.html">ExampleModel</a></li>
+				<li><a href="class-ExampleView.html">ExampleView</a></li>
+				<li><a href="class-IndexController.html">IndexController</a></li>
+				<li><a href="class-IndexModel.html">IndexModel</a></li>
+				<li><a href="class-IndexView.html">IndexView</a></li>
+				<li><a href="class-MyCoolApplicationNamespace.MyCoolApplication.html">MyCoolApplicationNamespace\MyCoolApplication</a></li>
+				<li><a href="class-Steel.ArrayMethods.html">Steel\ArrayMethods</a></li>
+				<li><a href="class-Steel.Database.Connection.html">Steel\Database\Connection</a></li>
+				<li><a href="class-Steel.MVC.MVCBundle.html">Steel\MVC\MVCBundle</a></li>
+				<li><a href="class-Steel.MVC.MVCIdentifier.html">Steel\MVC\MVCIdentifier</a></li>
+				<li><a href="class-Steel.Settings.html">Steel\Settings</a></li>
+				<li><a href="class-Steel.Steel.html">Steel\Steel</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-IController.html">IController</a></li>
+				<li><a href="class-IErrorController.html">IErrorController</a></li>
+				<li><a href="class-IErrorModel.html">IErrorModel</a></li>
+				<li><a href="class-IModel.html">IModel</a></li>
+				<li><a href="class-IView.html">IView</a></li>
+				<li><a href="class-Steel.Database.IConnection.html">Steel\Database\IConnection</a></li>
+				<li><a href="class-Steel.IApplication.html">Steel\IApplication</a></li>
+			</ul>
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<pre id="source"><code><span id="1" class="l"><a href="#1"> 1 </a><span class="xlang">&lt;?php</span>
+</span><span id="2" class="l"><a href="#2"> 2 </a><span class="php-keyword1">namespace</span> Steel\Database;
+</span><span id="3" class="l"><a href="#3"> 3 </a>
+</span><span id="4" class="l"><a href="#4"> 4 </a><span class="php-keyword1">interface</span> IConnection{
+</span><span id="5" class="l"><a href="#5"> 5 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> insert(<span class="php-var">$table</span>, <span class="php-var">$values</span> = []);
+</span><span id="6" class="l"><a href="#6"> 6 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> select(<span class="php-var">$table</span>, <span class="php-var">$conditions</span> = [], <span class="php-var">$columns</span> = []);
+</span><span id="7" class="l"><a href="#7"> 7 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> update(<span class="php-var">$table</span>, <span class="php-var">$updates</span> = [], <span class="php-var">$conditions</span> = []);
+</span><span id="8" class="l"><a href="#8"> 8 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <span class="php-keyword2">delete</span>(<span class="php-var">$table</span>, <span class="php-var">$conditions</span> = []);
+</span><span id="9" class="l"><a href="#9"> 9 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> prepared(<span class="php-var">$statement</span>, <span class="php-var">$values</span>);
+</span><span id="10" class="l"><a href="#10">10 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> query(<span class="php-var">$query</span>);
+</span><span id="11" class="l"><a href="#11">11 </a>}</span></code></pre>
+	</div>
+
+	<div id="footer">
+		Steel 1 RC 1 API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+<script src="resources/combined.js?533e23ef2f02bd4b20548834a028566b6eb403e0"></script>
+<script src="elementlist.js?315c04b07828e0017d9b028f4866b7ceb871cc1a"></script>
+</body>
+</html>
