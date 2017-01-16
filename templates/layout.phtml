@@ -3,18 +3,16 @@
     <head>
     <?php
     	foreach ($this->model->steel->config['resources']['css'] as $name => $url){
-    		echo '<link rel="stylesheet" href="'.$url.'" integrity="'.$this->model->steel->config['resources']['css-sri'][$name].'" crossorigin="anonymous" />';
+    		echo '<link rel="stylesheet" href="'.$url.'" integrity="'.$this->model->steel->config['resources']['css-sri'][$name].'" crossorigin="anonymous" />'.PHP_EOL;
     	}
     ?>
     </head>
     <body>
         <?php
         require dirname(__FILE__) . '/' . $page;
-        ?>
-    </body>
-    <?php 
+        echo PHP_EOL;
 	    foreach ($this->model->steel->config['resources']['js'] as $name => $url){
-	    	echo '<script type="text/javascript" src="'.$url.'" integrity="'.$this->model->steel->config['resources']['js-sri'][$name].'" crossorigin="anonymous"></script>';
+	    	echo '<script type="text/javascript" src="'.$url.'" integrity="'.$this->model->steel->config['resources']['js-sri'][$name].'" crossorigin="anonymous"></script>'.PHP_EOL;
 	    }
 	    if(isset($this->model) && isset($this->model->steel)){
 	    	if($this->model->steel->config['steel']['useLang']){
@@ -24,4 +22,5 @@
 	    	}
 	    }
     ?>
+    </body>
 </html>
