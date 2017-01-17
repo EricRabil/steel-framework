@@ -111,6 +111,10 @@ class MVCBundle {
     }
 
     private function handle_params() {
+        if(empty($this->steel->get_components())){
+          $this->components = [];
+          return;
+        }
         $this->components = $this->steel->get_components();
         if (count($this->components) <= 3) {
             foreach ($this->components as $key => $val) {
