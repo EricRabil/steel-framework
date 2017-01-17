@@ -13,9 +13,6 @@ class IndexView implements IView {
 
     public function render() {
         $page = 'index.phtml';
-        $this->context['title'] = $this->model->pageTitle;
-        $this->context['body'] = $this->model->bodyText;
-        extract($this->context);
         require $this::TEMPLATESDIR . '/layout.phtml';
     }
 

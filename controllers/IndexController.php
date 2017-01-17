@@ -11,8 +11,7 @@ class IndexController implements IController {
     }
 
     public function main($params) {
-        $this->model->pageTitle = "This is Steel!";
-        $this->model->bodyText = "If you see this screen, Steel is working!";
+    	
     }
 
 }
