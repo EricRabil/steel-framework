@@ -11,15 +11,15 @@ class Steel {
     private $components;
     private $path;
     public $config;
-    
+
     private $initialized = false;
-    
+
     private $dir;
-    
+
     private $sreheader = "<!-- Steel Runtime Error: ";
-    
+
     public $application = false;
-    
+
     public $database;
 
     private function set_mvc_map() {
@@ -53,7 +53,7 @@ class Steel {
             $this->initialized = true;
         }
     }
-    
+
     private function use_app_controller(){
         if($this->config['steel']['useApplication']){
             require_once $this->config['steel']['application']['filepath'];
@@ -77,7 +77,7 @@ class Steel {
     public function get_config() {
         return $this->config;
     }
-    
+
     private function require_include_folder(){
     	$files = scandir($this->dir . "/../../include");
     	$include = [];
@@ -109,7 +109,17 @@ class Steel {
         return $this->mvcMap;
     }
 
+    private function postinst(){
+      $mvcID = new \Steel\MVC\MVCIdentifier('MVC-POSTINST', 'postinstall', 'PostInstallModel', 'PostInstallView', 'PostInstallController', array(), array());
+      $mvc = new \Steel\MVC\MVCBundle($this, $mvcID);
+      $mvc->runMVC();
+    }
+
     private function process_request() {
+        if($this->config['steel']['postinst']){
+          $this->postinst();
+          return;
+        }
         $this->components = explode('/', $this->path);
         $class = $this->components[0];
         if (!array_key_exists($class, $this->mvcMap)) {
@@ -147,7 +157,7 @@ class Steel {
         $mvc->get_controller()->parse_error($int, $args);
         $mvc->get_view()->render();
     }
-    
+
     public function get_path(){
         return $this->path;
     }
