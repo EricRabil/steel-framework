@@ -24,7 +24,6 @@ class Steel {
 
     private function set_mvc_map() {
         $this->mvcMap['index'] = new \Steel\MVC\MVCIdentifier('MVC-INDEX', 'index', 'IndexModel', 'IndexView', 'IndexController', array(), array());
-        $this->mvcMap['example'] = new \Steel\MVC\MVCIdentifier('MVC-EXAMPLE', 'example', 'ExampleModel', 'ExampleView', 'ExampleController', array(), array());
     }
 
     public function init() {
