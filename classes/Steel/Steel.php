@@ -37,7 +37,7 @@ class Steel {
                 session_start();
             }
             if($this->config['database']['enabled']){
-                $this->database = new Connection($this->config['database']);
+                $this->database = new Connection($this);
             }else{
                 $this->database = false;
             }
