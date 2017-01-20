@@ -5,10 +5,11 @@ use Steel\Database\IConnection;
 use \PDO;
 
 class Connection implements IConnection{
-    
+
     private $conn;
-    
-    public function __construct($database){
+
+    public function __construct(\Steel\Steel $steel){
+        $database = $steel->config['database'];
         if($database['enabled']){
             try {
                 $this->conn = new PDO ('mysql:dbname='.$database['dbname'].';host='.$database['ip'].';port='.$database['port'], $database['username'], $database['password'], array(PDO::ATTR_PERSISTENT => TRUE));
@@ -22,9 +23,9 @@ class Connection implements IConnection{
             return null;
         }
     }
-    
-    public function delete($table, $conditions = []) {
-        if(empty($table)){
+
+    public function delete($table, $conditions) {
+        if(empty($table) || empty($conditions)){
             return 999;
         }
         $statement = sprintf("DELETE FROM `%s` WHERE", (string)$table);
@@ -45,6 +46,16 @@ class Connection implements IConnection{
         $stmt = $this->conn->prepare($statement);
         $stmt->execute($preparedValues);
         return $stmt->errorCode();
+    }
+
+    public function truncate($table) {
+          if(empty($table)){
+              return 999;
+          }
+          $statement = sprintf("DELETE FROM `%s` WHERE 1", (string)$table);
+          $stmt = $this->conn->prepare($statement);
+          $stmt->execute($preparedValues);
+          return $stmt->errorCode();
     }
 
     public function insert($table, $values = []) {
@@ -132,7 +143,7 @@ class Connection implements IConnection{
     }
 
     public function update($table, $updates = [], $conditions = []) {
-        if(empty($table) || empty($updates)){
+        if(empty($table) || empty($updates) || empty($conditions)){
             return 999;
         }
         $statement = sprintf("UPDATE `%s` SET ", $table);
@@ -165,8 +176,32 @@ class Connection implements IConnection{
         $stmt->execute(array_merge($updateValues, $conditionValues));
         return $stmt->errorCode();
     }
-    
-    public function getConnection(){
+
+    public function update_all($table, $updates = []){
+        if(empty($table) || empty($updates)){
+            return 999;
+        }
+        $statement = sprintf("UPDATE `%s` SET ", $table);
+        if(count($updates === 1)){
+            $statement .= sprintf("`%s` = ? ", key($updates));
+        }else{
+            foreach($updates as $column => $newcolumn){
+                if($column !== \Steel\ArrayMethods::lastKey($updates)){
+                    $statement .= sprintf("`%s` = ?, ", $column);
+                }else{
+                    $statement .= sprintf("`%s` = ?;", $column);
+                }
+            }
+        }
+        $statement .= " WHERE 1";
+        $stmt = $this->conn->prepare($statement);
+        $updateValues = array_values($updates);
+        $conditionValues = array_values($conditions);
+        $stmt->execute(array_merge($updateValues, $conditionValues));
+        return $stmt->errorCode();
+    }
+
+    public function get_pdo(){
         return $this->conn;
     }
 
