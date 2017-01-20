@@ -1,7 +1,7 @@
 <?php
 namespace Steel\Database;
 
-use Steel\Database\IConnection;
+use \Steel\Database\IConnection;
 use \PDO;
 
 class Connection implements IConnection{
@@ -24,7 +24,7 @@ class Connection implements IConnection{
         }
     }
 
-    public function delete($table, $conditions) {
+    public function delete($table, $conditions = []) {
         if(empty($table) || empty($conditions)){
             return 999;
         }
