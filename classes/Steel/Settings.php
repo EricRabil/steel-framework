@@ -29,7 +29,7 @@ class Settings {
     public function setup() {
         $this->config['steel'] = [];
         $this->config['steel']['postinst'] = true;
-        $this->config['steel']['version'] = "v1.0-rc2";
+        $this->config['steel']['version'] = "v1.0-rc3";
         $this->config['steel']['type'] = "release-candidate";
 
         $this->config['steel']['autoinclude'] = false;
