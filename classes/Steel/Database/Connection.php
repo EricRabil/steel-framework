@@ -125,18 +125,7 @@ class Connection implements IConnection{
                 }
             }
         }
-        $statement .= sprintf("FROM `%s` WHERE ", $table);
-        if(empty($conditions)){
-            $statement .= "1";
-        }else{
-            foreach($conditions as $column => $row){
-                if($column !== \Steel\ArrayMethods::lastKey($conditions)){
-                    $statement .= sprintf("`%s` = ? AND ", (string)$column);
-                }else{
-                    $statement .= sprintf("`%s` = ?;", (string)$column);
-                }
-            }
-        }
+        $statement .= sprintf("FROM `%s` WHERE ", $table).$this->process_condition_sel_upd($conditions);
         $stmt = $this->conn->prepare($statement);
         $stmt->execute(array_values($conditions));
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -146,30 +135,7 @@ class Connection implements IConnection{
         if(empty($table) || empty($updates) || empty($conditions)){
             return 999;
         }
-        $statement = sprintf("UPDATE `%s` SET ", $table);
-        if(count($updates === 1)){
-            $statement .= sprintf("`%s` = ? ", key($updates));
-        }else{
-            foreach($updates as $column => $newcolumn){
-                if($column !== \Steel\ArrayMethods::lastKey($updates)){
-                    $statement .= sprintf("`%s` = ?, ", $column);
-                }else{
-                    $statement .= sprintf("`%s` = ?;", $column);
-                }
-            }
-        }
-        $statement .= " WHERE ";
-        if(empty($conditions)){
-            $statement .= "1";
-        }else{
-            foreach($conditions as $column => $row){
-                if($column !== \Steel\ArrayMethods::lastKey($conditions)){
-                    $statement .= sprintf("`%s` = ? AND ", (string)$column);
-                }else{
-                    $statement .= sprintf("`%s` = ?;", (string)$column);
-                }
-            }
-        }
+        $statement = sprintf("UPDATE `%s` SET ", $table) . $this->process_updates($updates) . " WHERE ".$this->process_condition_sel_upd($conditions);
         $stmt = $this->conn->prepare($statement);
         $updateValues = array_values($updates);
         $conditionValues = array_values($conditions);
@@ -181,19 +147,7 @@ class Connection implements IConnection{
         if(empty($table) || empty($updates)){
             return 999;
         }
-        $statement = sprintf("UPDATE `%s` SET ", $table);
-        if(count($updates === 1)){
-            $statement .= sprintf("`%s` = ? ", key($updates));
-        }else{
-            foreach($updates as $column => $newcolumn){
-                if($column !== \Steel\ArrayMethods::lastKey($updates)){
-                    $statement .= sprintf("`%s` = ?, ", $column);
-                }else{
-                    $statement .= sprintf("`%s` = ?;", $column);
-                }
-            }
-        }
-        $statement .= " WHERE 1";
+        $statement = sprintf("UPDATE `%s` SET ", $table) . $this->process_updates($updates) . " WHERE 1";
         $stmt = $this->conn->prepare($statement);
         $updateValues = array_values($updates);
         $conditionValues = array_values($conditions);
@@ -203,6 +157,38 @@ class Connection implements IConnection{
 
     public function get_pdo(){
         return $this->conn;
+    }
+    
+    private function process_condition_sel_upd($conditions){
+        $statement = "";
+        if(empty($conditions)){
+            $statement .= "1";
+        }else{
+            foreach($conditions as $column => $row){
+                if($column !== \Steel\ArrayMethods::lastKey($conditions)){
+                    $statement .= sprintf("`%s` = ? AND ", (string)$column);
+                }else{
+                    $statement .= sprintf("`%s` = ?;", (string)$column);
+                }
+            }
+        }
+        return $statement;
+    }
+    
+    private function process_updates($updates){
+        $statement = "";
+            if(count($updates === 1)){
+                $statement .= sprintf("`%s` = ? ", key($updates));
+            }else{
+                foreach($updates as $column => $newcolumn){
+                    if($column !== \Steel\ArrayMethods::lastKey($updates)){
+                        $statement .= sprintf("`%s` = ?, ", $column);
+                    }else{
+                        $statement .= sprintf("`%s` = ?;", $column);
+                    }
+                }
+            }
+        return $statement;
     }
 
 }
