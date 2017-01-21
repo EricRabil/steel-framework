@@ -40,7 +40,7 @@ class Steel {
             }
             if ($this->config['database']['enabled']) {
                 $this->database = new Connection($this);
-            }else {
+            } else {
                 $this->database = false;
             }
             if ($this->config['steel']['autoinclude']) {
@@ -48,7 +48,7 @@ class Steel {
             }
             if ($this->config['steel']['useApplication']) {
                 $this->use_app_controller();
-            }else {
+            } else {
                 $this->application = null;
             }
             $this->process_request();
@@ -64,7 +64,7 @@ class Steel {
                 echo get_class($this->application) . " must be implement \Steel\IApplication";
                 exit();
             }
-        } else {
+        }else {
             return false;
         }
     }
@@ -91,11 +91,11 @@ class Steel {
         if (!file_exists($this->dir . '/../../include')) {
             if (!is_writable($this->dir . '/../..')) {
                 echo $this->sreheader . 'Failed to create missing \'include\' directory. Check that PHP has the proper execution permissions. -->' . PHP_EOL;
-            }else {
+            } else {
                 mkdir($this->dir . '/../../include', 0755, true);
                 $this->require_include_folder();
             }
-        }else {
+        } else {
             $this->require_include_folder();
         }
     }
@@ -136,7 +136,7 @@ class Steel {
                         break;
                 }
             }
-        } else {
+        }else {
             return;
         }
     }
