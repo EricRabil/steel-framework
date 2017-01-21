@@ -18,10 +18,10 @@ class MVCIdentifier {
         $this->modelName = $model;
         $this->viewName = $view;
         $this->controllerName = $controller;
-        if(!in_array('__construct', $forbidden)){
+        if (!in_array('__construct', $forbidden)) {
             array_push($forbidden, '__construct');
         }
-        if(!in_array('main', $forbidden)){
+        if (!in_array('main', $forbidden)) {
             array_push($forbidden, 'main');
         }
         $this->forbiddenPaths = $forbidden;

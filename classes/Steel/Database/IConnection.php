@@ -1,8 +1,8 @@
 <?php
 namespace Steel\Database;
 
-interface IConnection{
-    public function __construct( \Steel\Steel $steel );
+interface IConnection {
+    public function __construct(\Steel\Steel $steel);
     public function insert($table, $values = []);
     public function select($table, $conditions = [], $columns = []);
     public function update($table, $updates = [], $conditions = []);

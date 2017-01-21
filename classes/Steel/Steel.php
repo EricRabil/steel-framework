@@ -23,32 +23,32 @@ class Steel {
     public $database;
 
     public function map(\Steel\MVC\MVCIdentifier ...$identifiers) {
-        foreach($identifiers as $identifier){
+        foreach ($identifiers as $identifier) {
             $this->mvcMap[$identifier->get_path()] = $identifier;
         }
     }
 
     public function init() {
-        if(!$this->initialized){
+        if (!$this->initialized) {
             $this->dir = dirname(__FILE__);
             $this->path = trim(preg_replace("/[^a-z0-9_\\/]+/i", "", (isset($_GET['method'])) ? $_GET['method'] : 'index'), '/');
             $conf = new \Steel\Settings();
             $conf->setup();
             $this->config = $conf->getConfig();
-            if($this->config['steel']['useSessions']){
+            if ($this->config['steel']['useSessions']) {
                 session_start();
             }
-            if($this->config['database']['enabled']){
+            if ($this->config['database']['enabled']) {
                 $this->database = new Connection($this);
-            }else{
+            }else {
                 $this->database = false;
             }
             if ($this->config['steel']['autoinclude']) {
                 $this->require_includes();
             }
-            if($this->config['steel']['useApplication']){
+            if ($this->config['steel']['useApplication']) {
                 $this->use_app_controller();
-            }else{
+            }else {
                 $this->application = null;
             }
             $this->process_request();
@@ -64,7 +64,7 @@ class Steel {
                 echo get_class($this->application) . " must be implement \Steel\IApplication";
                 exit();
             }
-        }else {
+        } else {
             return false;
         }
     }
@@ -73,7 +73,7 @@ class Steel {
         return $this->config;
     }
 
-    private function require_include_folder(){
+    private function require_include_folder() {
         $files = scandir($this->dir . "/../../include");
         $include = [];
         foreach ($files as $file) {
@@ -88,14 +88,14 @@ class Steel {
     }
 
     private function require_includes() {
-        if(!file_exists($this->dir.'/../../include')){
-            if(!is_writable($this->dir.'/../..')){
-                echo $this->sreheader.'Failed to create missing \'include\' directory. Check that PHP has the proper execution permissions. -->'.PHP_EOL;
-            }else{
-                mkdir($this->dir.'/../../include', 0755, true);
+        if (!file_exists($this->dir . '/../../include')) {
+            if (!is_writable($this->dir . '/../..')) {
+                echo $this->sreheader . 'Failed to create missing \'include\' directory. Check that PHP has the proper execution permissions. -->' . PHP_EOL;
+            }else {
+                mkdir($this->dir . '/../../include', 0755, true);
                 $this->require_include_folder();
             }
-        }else{
+        }else {
             $this->require_include_folder();
         }
     }
@@ -104,14 +104,14 @@ class Steel {
         return $this->mvcMap;
     }
 
-    private function postinst(){
+    private function postinst() {
         $mvcID = new \Steel\MVC\MVCIdentifier('MVC-POSTINST', 'postinstall', 'PostInstallModel', 'PostInstallView', 'PostInstallController', [], []);
         $mvc = new \Steel\MVC\MVCBundle($this, $mvcID);
         $mvc->runMVC();
     }
 
     private function process_request() {
-        if($this->config['steel']['postinst']){
+        if ($this->config['steel']['postinst']) {
             $this->postinst();
             return;
         }
@@ -136,7 +136,7 @@ class Steel {
                         break;
                 }
             }
-        }else {
+        } else {
             return;
         }
     }
