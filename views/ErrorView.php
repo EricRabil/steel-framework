@@ -11,10 +11,9 @@ class ErrorView implements \Steel\MVC\IView {
     }
 
     public function render() {
-        $this->context['error_title'] = $this->model->get_error_title();
-        $this->context['error_text'] = $this->model->get_error_text();
-        $page = "error.phtml";
-        require $this::TEMPLATESDIR . '/layout.phtml';
+        $this->model->context['error_title'] = $this->model->get_error_title();
+        $this->model->context['error_text'] = $this->model->get_error_text();
+        $this->model->steel->render($this->model, 'error.phtml');
     }
 
 }

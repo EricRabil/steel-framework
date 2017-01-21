@@ -11,8 +11,7 @@ class PostInstallView implements \Steel\MVC\IView {
     }
 
     public function render() {
-        $page = 'postinst.phtml';
-        require $this::TEMPLATESDIR . '/layout.phtml';
+        $this->model->steel->render($this->model, 'postinst.phtml');
     }
 
 }

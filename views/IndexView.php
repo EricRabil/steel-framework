@@ -11,8 +11,7 @@ class IndexView implements \Steel\MVC\IView {
     }
 
     public function render() {
-        $page = 'index.phtml';
-        require $this::TEMPLATESDIR . '/layout.phtml';
+        $this->model->steel->render($this->model, 'index.phtml');
     }
 
 }

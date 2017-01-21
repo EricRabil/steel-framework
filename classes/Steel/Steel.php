@@ -161,5 +161,10 @@ class Steel {
     public function get_path(){
         return $this->path;
     }
+    
+    public function render(\Steel\MVC\IModel $model, $page, $styles = [], $scripts = []){
+        extract($model->get_context());
+        require_once $this->dir . '/../../templates/layout.phtml';
+    }
 
 }
