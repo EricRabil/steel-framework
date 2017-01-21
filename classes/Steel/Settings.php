@@ -34,7 +34,7 @@ class Settings {
 
         $this->config['steel']['autoinclude'] = false;
         $this->config['steel']['useApplication'] = false;
-        $this->config['steel']['application'] = array('filepath' => dirname(__FILE__).'/../../app/Application.php', 'fully_qualified_name' => '\MyCoolApplicationNamespace\MyCoolApplication');
+        $this->config['steel']['application'] = array('filepath' => dirname(__FILE__) . '/../../app/Application.php', 'fully_qualified_name' => '\MyCoolApplicationNamespace\MyCoolApplication');
 
         $this->config['steel']['useSessions'] = false;
 
@@ -45,19 +45,19 @@ class Settings {
         //SRI IS required. It is not hard to do.
 
         $this->config['resources']['css'] = [
-        	'bootstrap' => 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'
+            'bootstrap' => 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'
         ];
         $this->config['resources']['css-sri'] = [
-        	'bootstrap' => 'sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u'
+            'bootstrap' => 'sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u'
         ];
 
         $this->config['resources']['js'] = [
-        	'jquery' => "https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js",
-        	'bootstrap' => 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'
+            'jquery' => "https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js",
+            'bootstrap' => 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'
         ];
         $this->config['resources']['js-sri'] = [
-        	'jquery' => "sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ",
-        	'bootstrap' => 'sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa'
+            'jquery' => "sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ",
+            'bootstrap' => 'sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa'
         ];
 
         $this->config['general'] = [];

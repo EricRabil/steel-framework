@@ -25,7 +25,7 @@ class MVCBundle {
     }
 
     public function init() {
-        if(!$this->initialized){
+        if (!$this->initialized) {
             $modelName = $this->mvcID->get_model_name();
             $viewName = $this->mvcID->get_view_name();
             $controllerName = $this->mvcID->get_controller_name();
@@ -55,10 +55,10 @@ class MVCBundle {
                 $this->controller->{$this->components[1]}($this->params);
                 $this->view->render();
                 return 1;
-            } else {
+            }else {
                 return 2;
             }
-        } else {
+        }else {
             $this->controller->main($this->params);
             $this->view->render();
             return 1;
@@ -76,7 +76,7 @@ class MVCBundle {
             require_once dirname(__FILE__) . '/../../../controllers/' . $mvcidentifier->get_controller_name() . '.php';
             require_once dirname(__FILE__) . '/../../../views/' . $mvcidentifier->get_view_name() . '.php';
             return true;
-        } else {
+        }else {
             return false;
         }
     }
@@ -86,21 +86,21 @@ class MVCBundle {
     }
 
     public function get_model() {
-        if(!isset($this->model)){
+        if (!isset($this->model)) {
             return false;
         }
         return $this->model;
     }
 
     public function get_view() {
-        if(!isset($this->view)){
+        if (!isset($this->view)) {
             return false;
         }
         return $this->view;
     }
 
     public function get_controller() {
-        if(!isset($this->controller)){
+        if (!isset($this->controller)) {
             return false;
         }
         return $this->controller;
@@ -112,8 +112,8 @@ class MVCBundle {
 
     private function handle_params() {
         if(empty($this->steel->get_components())){
-          $this->components = [];
-          return;
+            $this->components = [];
+            return;
         }
         $this->components = $this->steel->get_components();
         if (count($this->components) <= 3) {
