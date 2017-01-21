@@ -60,7 +60,7 @@ class Steel {
         if ($this->config['steel']['useApplication']) {
             require_once $this->config['steel']['application']['filepath'];
             $this->application = new $this->config['steel']['application']['fully_qualified_name']($this);
-            if (!is_subclass_of($this->application, '\Steel\IApplication')) {
+            if (!ReflectionClass::implementsInterface($this->application, '\Steel\IApplication')) {
                 echo get_class($this->application) . " must be implement \Steel\IApplication";
                 exit();
             }
@@ -158,7 +158,8 @@ class Steel {
     }
     
     public function render(\Steel\MVC\IModel $model, $page, $styles = [], $scripts = []) {
-        extract($model->get_context());
+        $context = $model->get_context();
+        extract($context);
         require_once $this->dir . '/../../templates/layout.phtml';
     }
 
