@@ -1,6 +1,8 @@
 <?php
 
-interface IErrorModel extends IModel {
+namespace Steel\MVC;
+
+interface IErrorModel extends \Steel\MVC\IModel {
 
     public function set_error_title($title);
 
@@ -13,4 +15,6 @@ interface IErrorModel extends IModel {
     public function set_error_type($type);
 
     public function get_error_type();
+    
+    public function get_context();
 }

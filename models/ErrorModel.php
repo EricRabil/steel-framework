@@ -1,6 +1,6 @@
 <?php
 
-class ErrorModel implements IErrorModel {
+class ErrorModel implements \Steel\MVC\IErrorModel {
 
     private $errorText;
     private $errorTitle;

@@ -1,6 +1,6 @@
 <?php
 
-class ErrorController implements IErrorController {
+class ErrorController implements \Steel\MVC\IErrorController {
 
     private $model;
     private $bundle;

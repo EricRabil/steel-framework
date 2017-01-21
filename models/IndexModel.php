@@ -1,6 +1,6 @@
 <?php
 
-class IndexModel implements IModel {
+class IndexModel implements \Steel\MVC\IModel {
 
     public $steel;
 

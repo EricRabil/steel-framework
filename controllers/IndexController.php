@@ -1,6 +1,6 @@
 <?php
 
-class IndexController implements IController {
+class IndexController implements \Steel\MVC\IController {
 
     private $model;
     private $bundle;

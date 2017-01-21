@@ -1,6 +1,6 @@
 <?php
 
-class PostInstallModel implements IModel {
+class PostInstallModel implements \Steel\MVC\IModel {
 
     public $background;
     public $steel;

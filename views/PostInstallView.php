@@ -1,6 +1,6 @@
 <?php
 
-class PostInstallView implements IView {
+class PostInstallView implements \Steel\MVC\IView {
 
     private $bundle;
     private $model;

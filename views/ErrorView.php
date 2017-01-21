@@ -1,6 +1,6 @@
 <?php
 
-class ErrorView implements IView {
+class ErrorView implements \Steel\MVC\IView {
 
     private $bundle;
     private $model;

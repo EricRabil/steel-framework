@@ -1,6 +1,6 @@
 <?php
 
-class IndexView implements IView {
+class IndexView implements \Steel\MVC\IView {
 
     private $bundle;
     private $model;

@@ -1,5 +1,7 @@
 <?php
 
+namespace Steel\MVC;
+
 interface IView {
 
     const TEMPLATESDIR = '../templates';

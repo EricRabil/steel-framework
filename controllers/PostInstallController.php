@@ -1,6 +1,6 @@
 <?php
 
-class PostInstallController implements IController {
+class PostInstallController implements \Steel\MVC\IController {
 
     private $model;
     private $bundle;
