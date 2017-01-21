@@ -18,7 +18,7 @@ class Steel {
 
     private $sreheader = "<!-- Steel Runtime Error: ";
 
-    public $application = false;
+    public $application;
 
     public $database;
 
@@ -48,6 +48,8 @@ class Steel {
             }
             if($this->config['steel']['useApplication']){
                 $this->use_app_controller();
+            }else{
+                $this->application = null;
             }
             $this->process_request();
             $this->initialized = true;
