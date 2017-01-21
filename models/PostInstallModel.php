@@ -5,7 +5,9 @@ class PostInstallModel implements \Steel\MVC\IModel {
     public $background;
     public $steel;
 
-    public $page_title = "Steel %s";
+    public $page_title = "Steel";
+    public $navbar_title = "";
+    
     public $context = [];
 
     public function __construct(\Steel\Steel $steel) {
