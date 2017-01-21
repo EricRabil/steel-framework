@@ -8,12 +8,12 @@
  *
  * Category: General
  * Setting: Host
- * Variable: $config['general']['host']
+ * Variable: $this->config['general']['host']
  *
  * Category: General
  * Sub-Category: JS Links
  * Setting: Local
- * Variable: $config['general']['js_links']['local']
+ * Variable: $this->config['general']['js_links']['local']
  *
  * Naming conventions are all lower case, alpha-numeric, and underscores for spaces.
  *
@@ -29,8 +29,8 @@ class Settings {
     public function setup() {
         $this->config['steel'] = [];
         $this->config['steel']['postinst'] = true;
-        $this->config['steel']['version'] = "v1.0-rc3";
-        $this->config['steel']['type'] = "release-candidate";
+        $this->config['steel']['version'] = "v1.0";
+        $this->config['steel']['type'] = "release";
 
         $this->config['steel']['autoinclude'] = false;
         $this->config['steel']['useApplication'] = false;
@@ -40,7 +40,7 @@ class Settings {
 
         $this->config['steel']['useLang'] = false;
 
-        $this->config['resources'] = array();
+        $this->config['resources'] = [];
 
         //SRI IS required. It is not hard to do.
 
