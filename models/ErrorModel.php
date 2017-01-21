@@ -6,6 +6,8 @@ class ErrorModel implements \Steel\MVC\IErrorModel {
     private $errorTitle;
     private $errorType = "error";
     public $steel;
+    
+    public $context = [];
 
     public function __construct(\Steel\Steel $steel) {
         $this->errorText = "Something went wrong!";
@@ -35,6 +37,10 @@ class ErrorModel implements \Steel\MVC\IErrorModel {
 
     public function set_error_type($type) {
         $this->errorType = $type;
+    }
+
+    public function get_context() {
+        return $this->context;
     }
 
 }
