@@ -144,7 +144,7 @@ class Steel {
     }
 
     public function display_error($int, $args) {
-        $errorID = new \Steel\MVC\MVCIdentifier('MVC-ERR', 'error', 'ErrorModel', 'ErrorView', 'ErrorController', array('__construct', 'main'), array($this->dir . '/../../models/IErrorModel.php', $this->dir . '/../../controllers/IErrorController.php'));
+        $errorID = new \Steel\MVC\MVCIdentifier('MVC-ERR', 'error', 'ErrorModel', 'ErrorView', 'ErrorController', array('__construct', 'main'), array($this->dir . '/MVC/IErrorModel.php', $this->dir . '/MVC/IErrorController.php'));
         $mvc = new \Steel\MVC\MVCBundle($this, $errorID);
         $mvc->init();
         $mvc->get_controller()->parse_error($int, $args);
