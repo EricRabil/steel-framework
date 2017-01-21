@@ -5,13 +5,13 @@
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php
-    	if(isset($this->model->page_title)){
+    	if(isset($model->page_title)){
     		?>
-    		<title><?php echo $this->model->page_title; ?></title>
+    		<title><?php echo $model->page_title; ?></title>
     		<?php
     	}
-    	foreach ($this->model->steel->config['resources']['css'] as $name => $url){
-    		echo '<link rel="stylesheet" href="'.$url.'" integrity="'.$this->model->steel->config['resources']['css-sri'][$name].'" crossorigin="anonymous" />'.PHP_EOL;
+    	foreach ($this->config['resources']['css'] as $name => $url){
+    		echo '<link rel="stylesheet" href="'.$url.'" integrity="'.$this->config['resources']['css-sri'][$name].'" crossorigin="anonymous" />'.PHP_EOL;
     	}
     ?>
     </head>
@@ -19,11 +19,11 @@
 	        <?php
 		        require dirname(__FILE__) . '/' . $page;
 		        echo PHP_EOL;
-			    foreach ($this->model->steel->config['resources']['js'] as $name => $url){
-			    	echo '<script type="text/javascript" src="'.$url.'" integrity="'.$this->model->steel->config['resources']['js-sri'][$name].'" crossorigin="anonymous"></script>'.PHP_EOL;
+			    foreach ($this->config['resources']['js'] as $name => $url){
+			    	echo '<script type="text/javascript" src="'.$url.'" integrity="'.$this->config['resources']['js-sri'][$name].'" crossorigin="anonymous"></script>'.PHP_EOL;
 			    }
-			    if(isset($this->model) && isset($this->model->steel)){
-			    	if($this->model->steel->config['steel']['useLang']){
+			    if(isset($model) && isset($this)){
+			    	if($this->config['steel']['useLang']){
 			    		?>
 			    		<script src="/js/steel_localizer.js" type="text/javascript"></script>
 			    		<?php
