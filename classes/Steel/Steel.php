@@ -30,7 +30,7 @@ class Steel {
 
     public function init() {
         if(!$this->initialized){
-        	$this->dir = dirname(__FILE__);
+            $this->dir = dirname(__FILE__);
             $this->path = trim(preg_replace("/[^a-z0-9_\\/]+/i", "", (isset($_GET['method'])) ? $_GET['method'] : 'index'), '/');
             $conf = new \Steel\Settings();
             $conf->setup();
@@ -54,15 +54,15 @@ class Steel {
         }
     }
 
-    private function use_app_controller(){
-        if($this->config['steel']['useApplication']){
+    private function use_app_controller() {
+        if ($this->config['steel']['useApplication']) {
             require_once $this->config['steel']['application']['filepath'];
             $this->application = new $this->config['steel']['application']['fully_qualified_name']($this);
             if (!is_subclass_of($this->application, '\Steel\IApplication')) {
-                echo get_class($this->application)." must be implement \Steel\IApplication";
+                echo get_class($this->application) . " must be implement \Steel\IApplication";
                 exit();
             }
-        }else{
+        }else {
             return false;
         }
     }
@@ -72,30 +72,30 @@ class Steel {
     }
 
     private function require_include_folder(){
-    	$files = scandir($this->dir . "/../../include");
-    	$include = [];
-    	foreach ($files as $file) {
-    		$extension = explode('.', $file);
-    		if (isset($extension[1]) && !empty($extension[1]) && $extension[1] === "php") {
-    			array_push($include, $file);
-    		}
-    	}
-    	foreach ($include as $file) {
-    		require $this->dir . "/../../include/" . $file;
-    	}
+        $files = scandir($this->dir . "/../../include");
+        $include = [];
+        foreach ($files as $file) {
+            $extension = explode('.', $file);
+            if (isset($extension[1]) && !empty($extension[1]) && $extension[1] === "php") {
+                array_push($include, $file);
+            }
+        }
+        foreach ($include as $file) {
+            require $this->dir . "/../../include/" . $file;
+        }
     }
 
     private function require_includes() {
-    	if(!file_exists($this->dir.'/../../include')){
-    		if(!is_writable($this->dir.'/../..')){
-    			echo $this->sreheader.'Failed to create missing \'include\' directory. Check that PHP has the proper execution permissions. -->'.PHP_EOL;
-    		}else{
-    			mkdir($this->dir.'/../../include', 0755, true);
-    			$this->require_include_folder();
-    		}
-    	}else{
-    		$this->require_include_folder();
-    	}
+        if(!file_exists($this->dir.'/../../include')){
+            if(!is_writable($this->dir.'/../..')){
+                echo $this->sreheader.'Failed to create missing \'include\' directory. Check that PHP has the proper execution permissions. -->'.PHP_EOL;
+            }else{
+                mkdir($this->dir.'/../../include', 0755, true);
+                $this->require_include_folder();
+            }
+        }else{
+            $this->require_include_folder();
+        }
     }
 
     public function get_mvc_map() {
@@ -103,15 +103,15 @@ class Steel {
     }
 
     private function postinst(){
-      $mvcID = new \Steel\MVC\MVCIdentifier('MVC-POSTINST', 'postinstall', 'PostInstallModel', 'PostInstallView', 'PostInstallController', [], []);
-      $mvc = new \Steel\MVC\MVCBundle($this, $mvcID);
-      $mvc->runMVC();
+        $mvcID = new \Steel\MVC\MVCIdentifier('MVC-POSTINST', 'postinstall', 'PostInstallModel', 'PostInstallView', 'PostInstallController', [], []);
+        $mvc = new \Steel\MVC\MVCBundle($this, $mvcID);
+        $mvc->runMVC();
     }
 
     private function process_request() {
         if($this->config['steel']['postinst']){
-          $this->postinst();
-          return;
+            $this->postinst();
+            return;
         }
         $this->components = explode('/', $this->path);
         $class = $this->components[0];
@@ -122,7 +122,7 @@ class Steel {
         $mvcID = $this->mvcMap[$class];
         $mvc = new \Steel\MVC\MVCBundle($this, $mvcID);
         $intercepted = ($this->config['steel']['useApplication']) ? $this->application->call($mvc, $this->components) : false;
-        if(!$intercepted){
+        if (!$intercepted) {
             $status = $mvc->runMVC();
             if ($status != 1) {
                 switch ($status) {
@@ -134,7 +134,7 @@ class Steel {
                         break;
                 }
             }
-        }else{
+        }else {
             return;
         }
     }
@@ -151,11 +151,11 @@ class Steel {
         $mvc->get_view()->render();
     }
 
-    public function get_path(){
+    public function get_path() {
         return $this->path;
     }
     
-    public function render(\Steel\MVC\IModel $model, $page, $styles = [], $scripts = []){
+    public function render(\Steel\MVC\IModel $model, $page, $styles = [], $scripts = []) {
         extract($model->get_context());
         require_once $this->dir . '/../../templates/layout.phtml';
     }
