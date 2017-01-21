@@ -55,10 +55,10 @@ class MVCBundle {
                 $this->controller->{$this->components[1]}($this->params);
                 $this->view->render();
                 return 1;
-            } else {
+            }else {
                 return 2;
             }
-        } else {
+        }else {
             $this->controller->main($this->params);
             $this->view->render();
             return 1;
@@ -76,7 +76,7 @@ class MVCBundle {
             require_once dirname(__FILE__) . '/../../../controllers/' . $mvcidentifier->get_controller_name() . '.php';
             require_once dirname(__FILE__) . '/../../../views/' . $mvcidentifier->get_view_name() . '.php';
             return true;
-        } else {
+        }else {
             return false;
         }
     }
