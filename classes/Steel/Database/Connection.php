@@ -19,7 +19,7 @@ class Connection implements IConnection {
             } catch (\PDOException $e) {
                 die($e);
             }
-        } else {
+        }else {
             return null;
         }
     }
@@ -32,12 +32,12 @@ class Connection implements IConnection {
         $preparedValues = [];
         if (empty($conditions)) {
             $statement .= " 1";
-        } else {
+        }else {
             $lastcolumn = \Steel\ArrayMethods::lastKey($conditions);
             foreach ($conditions as $column => $value) {
                 if ($column === $lastcolumn) {
                     $statement .= " " . $column . " = ?";
-                } else {
+                }else {
                     $statement .= " " . $column . " = ? AND";
                 }
                 array_push($preparedValues, $value);
@@ -66,7 +66,7 @@ class Connection implements IConnection {
         foreach ($values as $key => $val) {
             if ($key === \Steel\ArrayMethods::lastKey($values)) {
                 $statement .= sprintf("`%s`)", (string)$key);
-            } else {
+            }else {
                 $statement .= sprintf("`%s`, ", (string)$key);
             }
         }
@@ -74,7 +74,7 @@ class Connection implements IConnection {
         $size = count($values) - 1;
         if ($size === 1) {
             $statement .= "?);";
-        } else {
+        }else {
             for ($k = 0; $k < $size && $k != $size; $k ++) {
                 $statement .= "?, ";
             }
@@ -111,15 +111,15 @@ class Connection implements IConnection {
         $statement = "SELECT ";
         if (empty($columns)) {
             $statement .= "* ";
-        } else {
+        }else {
             $sanitized = array_values($columns);
             if (count($columns) === 1) {
                 $statement .= sprintf("%s ", (string)$sanitized[0]);
-            } else {
+            }else {
                 foreach ($columns as $column) {
                     if ($column !== \Steel\ArrayMethods::lastValue($columns)) {
                         $statement .= sprintf("%s, ", (string)$column);
-                    } else {
+                    }else {
                         $statement .= sprintf("%s ", (string)$column);
                     }
                 }
@@ -162,11 +162,11 @@ class Connection implements IConnection {
         $statement = "";
         if (empty($conditions)) {
             $statement .= "1";
-        } else {
+        }else {
             foreach ($conditions as $column => $row) {
                 if ($column !== \Steel\ArrayMethods::lastKey($conditions)) {
                     $statement .= sprintf("`%s` = ? AND ", (string)$column);
-                } else {
+                }else {
                     $statement .= sprintf("`%s` = ?;", (string)$column);
                 }
             }
@@ -178,11 +178,11 @@ class Connection implements IConnection {
         $statement = "";
             if (count($updates === 1)) {
                 $statement .= sprintf("`%s` = ? ", key($updates));
-            } else {
+            }else {
                 foreach ($updates as $column => $newcolumn) {
                     if ($column !== \Steel\ArrayMethods::lastKey($updates)) {
                         $statement .= sprintf("`%s` = ?, ", $column);
-                    } else {
+                    }else {
                         $statement .= sprintf("`%s` = ?;", $column);
                     }
                 }
