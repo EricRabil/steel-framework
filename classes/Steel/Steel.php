@@ -43,7 +43,6 @@ class Steel {
             }else{
                 $this->database = false;
             }
-            $this->require_interfaces();
             if ($this->config['steel']['autoinclude']) {
                 $this->require_includes();
             }
@@ -66,13 +65,6 @@ class Steel {
         }else{
             return false;
         }
-    }
-
-    private function require_interfaces() {
-        require $this->dir . '/../../models/IModel.php';
-        require $this->dir . '/../../controllers/IController.php';
-        require $this->dir . '/../../views/IView.php';
-        return true;
     }
 
     public function get_config() {
