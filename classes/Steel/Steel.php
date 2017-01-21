@@ -22,10 +22,8 @@ class Steel {
 
     public $database;
 
-    public function map(\Steel\MVC\MVCIdentifier ...$identifiers) {
-        foreach ($identifiers as $identifier) {
-            $this->mvcMap[$identifier->get_path()] = $identifier;
-        }
+    public function map(\Steel\MVC\MVCIdentifier $identifier) {
+        $this->mvcMap[$identifier->get_path()] = $identifier;
     }
 
     public function init() {
@@ -156,7 +154,7 @@ class Steel {
     public function get_path() {
         return $this->path;
     }
-    
+
     public function render(\Steel\MVC\IModel $model, $page, $styles = [], $scripts = []) {
         $context = $model->get_context();
         extract($context);
