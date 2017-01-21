@@ -54,7 +54,7 @@ class Connection implements IConnection{
           }
           $statement = sprintf("DELETE FROM `%s` WHERE 1", (string)$table);
           $stmt = $this->conn->prepare($statement);
-          $stmt->execute($preparedValues);
+          $stmt->execute();
           return $stmt->errorCode();
     }
 
@@ -150,8 +150,7 @@ class Connection implements IConnection{
         $statement = sprintf("UPDATE `%s` SET ", $table) . $this->process_updates($updates) . " WHERE 1";
         $stmt = $this->conn->prepare($statement);
         $updateValues = array_values($updates);
-        $conditionValues = array_values($conditions);
-        $stmt->execute(array_merge($updateValues, $conditionValues));
+        $stmt->execute(array_merge($updateValues));
         return $stmt->errorCode();
     }
 
