@@ -22,8 +22,10 @@ class Steel {
 
     public $database;
 
-    private function set_mvc_map() {
-        $this->mvcMap['index'] = new \Steel\MVC\MVCIdentifier('MVC-INDEX', 'index', 'IndexModel', 'IndexView', 'IndexController', array(), array());
+    public function map(\Steel\MVC\MVCIdentifier ...$identifiers) {
+        foreach($identifiers as $identifier){
+            $this->mvcMap[$identifier->get_path()] = $identifier;
+        }
     }
 
     public function init() {
@@ -45,7 +47,6 @@ class Steel {
             if ($this->config['steel']['autoinclude']) {
                 $this->require_includes();
             }
-            $this->set_mvc_map();
             if($this->config['steel']['useApplication']){
                 $this->use_app_controller();
             }
