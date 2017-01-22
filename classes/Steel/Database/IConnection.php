@@ -8,7 +8,7 @@ namespace Steel\Database;
  * @author  Eric Rabil <ericjrabil@gmail.com>
  */
 interface IConnection {
-    public function __construct(\Steel\Steel $steel);
+    public function __construct($database = []);
     public function insert($table, $values = []);
     public function select($table, $conditions = [], $columns = []);
     public function update($table, $updates = [], $conditions = []);
