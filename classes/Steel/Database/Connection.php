@@ -14,8 +14,19 @@ use \PDO;
  */
 class Connection implements IConnection {
 
+    /**
+     * The PDO object that the class uses to interact with the database.
+     * 
+     * @var PDO
+     */
     private $conn;
 
+    /**
+     * Establishes the connection with the database and initializes itself.
+     * 
+     * @param array The database sub-array from the Steel->config array.
+     * @return null If the database array is empty.
+     */
     public function __construct($database = []) {
         if(empty($database)){
             return null;
@@ -32,6 +43,13 @@ class Connection implements IConnection {
         }
     }
 
+    /**
+     * Deletes rows that meet a certain specification
+     * 
+     * @param string $table The table to delete rows from
+     * @param array $conditions The conditions to use when deleting rows
+     * @return int The MySQL status code, 999 if the function is improperly called.
+     */
     public function delete($table, $conditions = []) {
         if (empty($table) || empty($conditions)) {
             return 999;
@@ -56,6 +74,12 @@ class Connection implements IConnection {
         return $stmt->errorCode();
     }
 
+    /**
+     * Deletes all rows in a given table.
+     * 
+     * @param string $table The table to empty
+     * @return int The MySQL status code, 999 if the function is improperly called.
+     */
     public function truncate($table) {
             if (empty($table)) {
                 return 999;
@@ -66,6 +90,13 @@ class Connection implements IConnection {
             return $stmt->errorCode();
     }
 
+    /**
+     * Insert a row into a given table.
+     * 
+     * @param string $table The table to add a row to
+     * @param array $values The columns and their respective values
+     * @return int The MySQL status code, 999 if the function is improperly called.
+     */
     public function insert($table, $values = []) {
         $statement = sprintf("INSERT INTO %s (", $table);
         if (empty($values) || empty($table)) {
@@ -94,6 +125,14 @@ class Connection implements IConnection {
         return $stmt->errorCode();
     }
 
+    /**
+     * Run a generic prepared statement
+     * 
+     * @param string $statement The statement template
+     * @param array $values The parameters to bind to the statement
+     * @param boolean $giveresults Whether or not you are expecting rows in response (Select?)
+     * @return int The MySQL status code, 999 if the function is improperly called.
+     */
     public function prepared($statement, $values = [], $giveresults = false) {
         if (empty($statement)) {
             return 999;
@@ -105,6 +144,14 @@ class Connection implements IConnection {
         }
     }
 
+    /**
+     * Run a query
+     * 
+     * This does not use any safeguards whatsoever; it is simply executing the query. It is not advised that you do this unless you know what you're doing.
+     * 
+     * @param string $query The query to execute
+     * @return int The MySQL status code, 999 if the function is improperly called.
+     */
     public function query($query) {
         if (empty($query)) {
             return 999;
@@ -112,6 +159,14 @@ class Connection implements IConnection {
         return $this->conn->query($query);
     }
 
+    /**
+     * Select row(s) from a table.
+     * 
+     * @param string $table The table to search
+     * @param array $conditions The conditions used to narrow down the search.
+     * @param array $columns The columns to select
+     * @return int The MySQL status code, 999 if the function is improperly called.
+     */
     public function select($table, $conditions = [], $columns = []) {
         if (empty($table)) {
             return 999;
@@ -139,6 +194,16 @@ class Connection implements IConnection {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    /**
+     * Update row(s) from a table.
+     * 
+     * This function does not support updating all tables, use update_all to do that.
+     * 
+     * @param string $table The table to update
+     * @param array $updates The columns to update
+     * @param array $conditions The conditions to use when performing the update
+     * @return int The MySQL status code, 999 if the function is improperly called.
+     */
     public function update($table, $updates = [], $conditions = []) {
         if (empty($table) || empty($updates) || empty($conditions)) {
             return 999;
@@ -151,6 +216,13 @@ class Connection implements IConnection {
         return $stmt->errorCode();
     }
 
+    /**
+     * Update all rows in a given table.
+     * 
+     * @param string $table The table to update
+     * @param array $updates The columns to update
+     * @return int The MySQL status code, 999 if the function is improperly called.
+     */
     public function update_all($table, $updates = []) {
         if (empty($table) || empty($updates)) {
             return 999;
@@ -162,6 +234,11 @@ class Connection implements IConnection {
         return $stmt->errorCode();
     }
 
+    /**
+     * Get the PDO itself for advanced interaction
+     * 
+     * @return \PDO
+     */
     public function get_pdo() {
         return $this->conn;
     }
