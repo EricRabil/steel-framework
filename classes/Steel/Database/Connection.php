@@ -16,8 +16,10 @@ class Connection implements IConnection {
 
     private $conn;
 
-    public function __construct(\Steel\Steel $steel) {
-        $database = $steel->config['database'];
+    public function __construct($database = []) {
+        if(empty($database)){
+            return null;
+        }
         if ($database['enabled']) {
             try {
                 $this->conn = new PDO('mysql:dbname=' . $database['dbname'] . ';host=' . $database['ip'] . ';port=' . $database['port'], $database['username'], $database['password'], array(PDO::ATTR_PERSISTENT => TRUE));
@@ -27,8 +29,6 @@ class Connection implements IConnection {
             } catch (\PDOException $e) {
                 die($e);
             }
-        }else {
-            return null;
         }
     }
 
