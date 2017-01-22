@@ -1,6 +1,12 @@
 <?php
 namespace Steel\Database;
 
+/**
+ * Interface for Steel-compatible database connections.
+ * 
+ * @since   1.0
+ * @author  Eric Rabil <ericjrabil@gmail.com>
+ */
 interface IConnection {
     public function __construct(\Steel\Steel $steel);
     public function insert($table, $values = []);

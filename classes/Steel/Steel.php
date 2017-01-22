@@ -5,6 +5,12 @@ require_once 'autoload.php';
 
 use Steel\Database\Connection;
 
+/**
+ * This is the main Steel class; it is used for code execution and data storage.
+ * 
+ * @since   1.0
+ * @author  Eric Rabil <ericjrabil@gmail.com>
+ */
 class Steel {
 
     private $mvcMap = [];
@@ -22,10 +28,22 @@ class Steel {
 
     public $database;
 
+    /**
+     * Maps an MVC to Steel.
+     * 
+     * Takes the identifier and pushes it to an array using a key identical to the value of $identifier->get_path()
+     *
+     * @param MVCIdentifier $identifier The MVCIdentifier associated with the MVC
+     */
     public function map(\Steel\MVC\MVCIdentifier $identifier) {
         $this->mvcMap[$identifier->get_path()] = $identifier;
     }
 
+    /**
+     * Runs the Steel Framework.
+     * 
+     * Upon run, it configures itself and loads the necessary MVC (if mapped)
+     */
     public function init() {
         if (!$this->initialized) {
             $this->dir = dirname(__FILE__);
@@ -54,6 +72,7 @@ class Steel {
         }
     }
 
+    
     private function use_app_controller() {
         if ($this->config['steel']['useApplication']) {
             require_once $this->config['steel']['application']['filepath'];
@@ -67,6 +86,11 @@ class Steel {
         }
     }
 
+    /**
+     * Get the configuration class
+     * 
+     * @return Settings
+     */
     public function get_config() {
         return $this->config;
     }
@@ -98,6 +122,11 @@ class Steel {
         }
     }
 
+    /**
+     * Get the mapped MVCIdentifiers
+     * 
+     * @return array The array with the mapped MVCIdentifier
+     */
     public function get_mvc_map() {
         return $this->mvcMap;
     }
@@ -139,10 +168,21 @@ class Steel {
         }
     }
 
+    /**
+     * Get the components of the URL path
+     * 
+     * @return array Array of the path components
+     */
     public function get_components() {
         return $this->components;
     }
 
+    /**
+     * Run the Error MVC with the specified error
+     * 
+     * @param integer $int Error code
+     * @param array $args Array with the error arguments (unique to each error code)
+     */
     public function display_error($int, $args) {
         $errorID = new \Steel\MVC\MVCIdentifier('MVC-ERR', 'error', 'ErrorModel', 'ErrorView', 'ErrorController', array('__construct', 'main'), array($this->dir . '/MVC/IErrorModel.php', $this->dir . '/MVC/IErrorController.php'));
         $mvc = new \Steel\MVC\MVCBundle($this, $errorID);
@@ -151,10 +191,23 @@ class Steel {
         $mvc->get_view()->render();
     }
 
+    /**
+     * Get the full path, not the components.
+     * 
+     * @return string
+     */
     public function get_path() {
         return $this->path;
     }
 
+    /**
+     * Run the desired MVC
+     * 
+     * @param \Steel\MVC\IModel $model Data source for page context
+     * @param type $page Template file to load
+     * @param type $styles CSS files to load
+     * @param type $scripts JS files to load
+     */
     public function render(\Steel\MVC\IModel $model, $page, $styles = [], $scripts = []) {
         $context = $model->get_context();
         extract($context);

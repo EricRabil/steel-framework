@@ -4,6 +4,14 @@ namespace Steel\Database;
 use \Steel\Database\IConnection;
 use \PDO;
 
+/**
+ * Default database-object for Steel applications.
+ * 
+ * Comes with built-in prepared statements (uses PDO,) advanced query-builders
+ * 
+ * @since   1.0
+ * @author  Eric Rabil <ericjrabil@gmail.com>
+ */
 class Connection implements IConnection {
 
     private $conn;
