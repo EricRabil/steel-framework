@@ -60,7 +60,7 @@ class Connection implements IConnection {
             if (empty($table)) {
                 return 999;
             }
-            $statement = sprintf("DELETE FROM `%s` WHERE 1", (string)$table);
+            $statement = sprintf("TRUNCATE TABLE `%s`", (string)$table);
             $stmt = $this->conn->prepare($statement);
             $stmt->execute();
             return $stmt->errorCode();
