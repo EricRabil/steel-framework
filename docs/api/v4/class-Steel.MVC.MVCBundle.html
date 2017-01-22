@@ -97,6 +97,11 @@
 	<h1>Class MVCBundle</h1>
 
 
+	<div class="description">
+	<p>Wrapper for the individual Model, View and Controller classes of the MVC.</p>
+
+<p>Used to run the normal MVC and errors if needed.</p>
+	</div>
 
 
 
@@ -112,7 +117,11 @@
 		<b>Namespace:</b> <a href="namespace-Steel.html">Steel</a>\<a href="namespace-Steel.MVC.html">MVC</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-Steel.MVC.MVCBundle.html#5-129" title="Go to source code">Steel/MVC/MVCBundle.php</a>
+				<b>Author:</b>
+				Eric Rabil <a href="mai&#108;&#116;&#111;&#58;&#101;&#114;&#105;&#99;&#106;&#114;&#97;&#98;&#105;&#108;&#64;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;">&#101;&#114;&#105;&#99;&#106;&#114;&#97;&#98;&#105;&#108;&#64;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;</a><br>
+				<b>Since:</b>
+				1.0<br>
+			<b>Located at</b> <a href="source-class-Steel.MVC.MVCBundle.html#5-227" title="Go to source code">Steel/MVC/MVCBundle.php</a>
 		<br>
 	</div>
 
@@ -132,16 +141,25 @@
 
 			<td class="name"><div>
 			<a class="anchor" href="#___construct">#</a>
-			<code><a href="source-class-Steel.MVC.MVCBundle.html#16-25" title="Go to source code">__construct</a>( <span><code><a href="class-Steel.Steel.html">Steel\Steel</a></code> <var>$steel</var></span>, <span><code><a href="class-Steel.MVC.MVCIdentifier.html">Steel\MVC\MVCIdentifier</a></code> <var>$mvcidentifier</var></span> )</code>
+			<code><a href="source-class-Steel.MVC.MVCBundle.html#71-88" title="Go to source code">__construct</a>( <span><code><a href="class-Steel.Steel.html">Steel\Steel</a></code> <var>$steel</var></span>, <span><code><a href="class-Steel.MVC.MVCIdentifier.html">Steel\MVC\MVCIdentifier</a></code> <var>$mvcidentifier</var></span> )</code>
 
 			<div class="description short">
-				
+				<p>Constructor for the MVCBundle</p>
 			</div>
 
 			<div class="description detailed hidden">
-				
+				<p>Constructor for the MVCBundle</p>
+
+<p>Includes all necessary files. Sets the MVC Identifier. Sets the Steel variable.</p>
 
 
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$steel</var></dt>
+						<dd>Used to access the main framework.</dd>
+						<dt><var>$mvcidentifier</var></dt>
+						<dd>Used to access any MVC metadata.</dd>
+					</dl></div>
 
 
 
@@ -161,14 +179,16 @@
 
 			<td class="name"><div>
 			<a class="anchor" href="#_init">#</a>
-			<code><a href="source-class-Steel.MVC.MVCBundle.html#27-37" title="Go to source code">init</a>( )</code>
+			<code><a href="source-class-Steel.MVC.MVCBundle.html#90-105" title="Go to source code">init</a>( )</code>
 
 			<div class="description short">
-				
+				<p>Initializes the model, view and controller.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				
+				<p>Initializes the model, view and controller.</p>
+
+<p>Gets the model, view and controller class names and instantiates them. Flags the bundle as initialized.</p>
 
 
 
@@ -183,24 +203,28 @@
 
 			<td class="attributes"><code>
 				 public 
-				
+				integer
 				
 				</code>
 			</td>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_runMVC">#</a>
-			<code><a href="source-class-Steel.MVC.MVCBundle.html#45-66" title="Go to source code">runMVC</a>( )</code>
+			<code><a href="source-class-Steel.MVC.MVCBundle.html#112-138" title="Go to source code">runMVC</a>( )</code>
 
 			<div class="description short">
-				
+				<p>Runs the controller, then the view.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				
+				<p>Runs the controller, then the view.</p>
 
 
 
+					<h4>Returns</h4>
+					<div class="list">
+						integer<br>The response code
+					</div>
 
 
 
@@ -212,24 +236,28 @@
 
 			<td class="attributes"><code>
 				 public 
-				
+				<code><a href="class-Steel.MVC.MVCIdentifier.html">Steel\MVC\MVCIdentifier</a></code>
 				
 				</code>
 			</td>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_get_mvc_identifier">#</a>
-			<code><a href="source-class-Steel.MVC.MVCBundle.html#68-70" title="Go to source code">get_mvc_identifier</a>( )</code>
+			<code><a href="source-class-Steel.MVC.MVCBundle.html#140-147" title="Go to source code">get_mvc_identifier</a>( )</code>
 
 			<div class="description short">
-				
+				<p>Get the MVC Identifier</p>
 			</div>
 
 			<div class="description detailed hidden">
-				
+				<p>Get the MVC Identifier</p>
 
 
 
+					<h4>Returns</h4>
+					<div class="list">
+						<code><a href="class-Steel.MVC.MVCIdentifier.html">Steel\MVC\MVCIdentifier</a></code>
+					</div>
 
 
 
@@ -241,14 +269,14 @@
 
 			<td class="attributes"><code>
 				 public 
-				
+				boolean
 				
 				</code>
 			</td>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_set_mvc_identifier">#</a>
-			<code><a href="source-class-Steel.MVC.MVCBundle.html#72-82" title="Go to source code">set_mvc_identifier</a>( <span> <var>$mvcidentifier</var></span> )</code>
+			<code><a href="source-class-Steel.MVC.MVCBundle.html#149-164" title="Go to source code">set_mvc_identifier</a>( <span><code><a href="class-Steel.MVC.MVCIdentifier.html">Steel\MVC\MVCIdentifier</a></code> <var>$mvcidentifier</var></span> )</code>
 
 			<div class="description short">
 				
@@ -258,7 +286,16 @@
 				
 
 
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$mvcidentifier</var></dt>
+						<dd>The MVC Identifier to update.</dd>
+					</dl></div>
 
+					<h4>Returns</h4>
+					<div class="list">
+						boolean<br>Returns false if this is being called post-initialization. Nothing will happen if returned false.
+					</div>
 
 
 
@@ -270,24 +307,28 @@
 
 			<td class="attributes"><code>
 				 public 
-				
+				boolean
 				
 				</code>
 			</td>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_is_initialized">#</a>
-			<code><a href="source-class-Steel.MVC.MVCBundle.html#84-86" title="Go to source code">is_initialized</a>( )</code>
+			<code><a href="source-class-Steel.MVC.MVCBundle.html#166-173" title="Go to source code">is_initialized</a>( )</code>
 
 			<div class="description short">
-				
+				<p>Gets the initialized variable.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				
+				<p>Gets the initialized variable.</p>
 
 
 
+					<h4>Returns</h4>
+					<div class="list">
+						boolean<br>Returns the initialization status of the bundle.
+					</div>
 
 
 
@@ -299,24 +340,28 @@
 
 			<td class="attributes"><code>
 				 public 
-				
+				<code><a href="class-Steel.MVC.IModel.html">Steel\MVC\IModel</a></code>|boolean
 				
 				</code>
 			</td>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_get_model">#</a>
-			<code><a href="source-class-Steel.MVC.MVCBundle.html#88-93" title="Go to source code">get_model</a>( )</code>
+			<code><a href="source-class-Steel.MVC.MVCBundle.html#175-185" title="Go to source code">get_model</a>( )</code>
 
 			<div class="description short">
-				
+				<p>Gets the assigned model.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				
+				<p>Gets the assigned model.</p>
 
 
 
+					<h4>Returns</h4>
+					<div class="list">
+						<code><a href="class-Steel.MVC.IModel.html">Steel\MVC\IModel</a></code>|boolean<br>Returns the model if set or false if unset.
+					</div>
 
 
 
@@ -328,24 +373,28 @@
 
 			<td class="attributes"><code>
 				 public 
-				
+				<code><a href="class-Steel.MVC.IView.html">Steel\MVC\IView</a></code>|boolean
 				
 				</code>
 			</td>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_get_view">#</a>
-			<code><a href="source-class-Steel.MVC.MVCBundle.html#95-100" title="Go to source code">get_view</a>( )</code>
+			<code><a href="source-class-Steel.MVC.MVCBundle.html#187-197" title="Go to source code">get_view</a>( )</code>
 
 			<div class="description short">
-				
+				<p>Gets the assigned view.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				
+				<p>Gets the assigned view.</p>
 
 
 
+					<h4>Returns</h4>
+					<div class="list">
+						<code><a href="class-Steel.MVC.IView.html">Steel\MVC\IView</a></code>|boolean<br>Returns the view if set or false if unset.
+					</div>
 
 
 
@@ -357,53 +406,28 @@
 
 			<td class="attributes"><code>
 				 public 
-				
+				<code><a href="class-Steel.MVC.IController.html">Steel\MVC\IController</a></code>|boolean
 				
 				</code>
 			</td>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_get_controller">#</a>
-			<code><a href="source-class-Steel.MVC.MVCBundle.html#102-107" title="Go to source code">get_controller</a>( )</code>
+			<code><a href="source-class-Steel.MVC.MVCBundle.html#199-209" title="Go to source code">get_controller</a>( )</code>
 
 			<div class="description short">
-				
+				<p>Gets the assigned controller.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				
+				<p>Gets the assigned controller.</p>
 
 
 
-
-
-
-
-			</div>
-			</div></td>
-		</tr>
-		<tr data-order="throw_error" id="_throw_error">
-
-			<td class="attributes"><code>
-				 public 
-				
-				
-				</code>
-			</td>
-
-			<td class="name"><div>
-			<a class="anchor" href="#_throw_error">#</a>
-			<code><a href="source-class-Steel.MVC.MVCBundle.html#109-111" title="Go to source code">throw_error</a>( <span> <var>$int</var></span> )</code>
-
-			<div class="description short">
-				
-			</div>
-
-			<div class="description detailed hidden">
-				
-
-
-
+					<h4>Returns</h4>
+					<div class="list">
+						<code><a href="class-Steel.MVC.IController.html">Steel\MVC\IController</a></code>|boolean<br>Returns the controller if set or false if unset.
+					</div>
 
 
 

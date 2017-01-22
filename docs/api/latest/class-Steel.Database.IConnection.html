@@ -92,6 +92,9 @@
 	<h1>Interface IConnection</h1>
 
 
+	<div class="description">
+	<p>Interface for Steel-compatible database connections.</p>
+	</div>
 
 
 
@@ -113,7 +116,11 @@
 		<b>Namespace:</b> <a href="namespace-Steel.html">Steel</a>\<a href="namespace-Steel.Database.html">Database</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-Steel.Database.IConnection.html#4-15" title="Go to source code">Steel/Database/IConnection.php</a>
+				<b>Author:</b>
+				Eric Rabil <a href="mai&#108;&#116;&#111;&#58;&#101;&#114;&#105;&#99;&#106;&#114;&#97;&#98;&#105;&#108;&#64;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;">&#101;&#114;&#105;&#99;&#106;&#114;&#97;&#98;&#105;&#108;&#64;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;</a><br>
+				<b>Since:</b>
+				1.0<br>
+			<b>Located at</b> <a href="source-class-Steel.Database.IConnection.html#4-21" title="Go to source code">Steel/Database/IConnection.php</a>
 		<br>
 	</div>
 
@@ -133,7 +140,7 @@
 
 			<td class="name"><div>
 			<a class="anchor" href="#___construct">#</a>
-			<code><a href="source-class-Steel.Database.IConnection.html#5" title="Go to source code">__construct</a>( <span><code><a href="class-Steel.Steel.html">Steel\Steel</a></code> <var>$steel</var></span> )</code>
+			<code><a href="source-class-Steel.Database.IConnection.html#11" title="Go to source code">__construct</a>( <span><code><a href="class-Steel.Steel.html">Steel\Steel</a></code> <var>$steel</var></span> )</code>
 
 			<div class="description short">
 				
@@ -162,7 +169,7 @@
 
 			<td class="name"><div>
 			<a class="anchor" href="#_insert">#</a>
-			<code><a href="source-class-Steel.Database.IConnection.html#6" title="Go to source code">insert</a>( <span> <var>$table</var></span>, <span> <var>$values</var> = []</span> )</code>
+			<code><a href="source-class-Steel.Database.IConnection.html#12" title="Go to source code">insert</a>( <span> <var>$table</var></span>, <span> <var>$values</var> = []</span> )</code>
 
 			<div class="description short">
 				
@@ -191,7 +198,7 @@
 
 			<td class="name"><div>
 			<a class="anchor" href="#_select">#</a>
-			<code><a href="source-class-Steel.Database.IConnection.html#7" title="Go to source code">select</a>( <span> <var>$table</var></span>, <span> <var>$conditions</var> = []</span>, <span> <var>$columns</var> = []</span> )</code>
+			<code><a href="source-class-Steel.Database.IConnection.html#13" title="Go to source code">select</a>( <span> <var>$table</var></span>, <span> <var>$conditions</var> = []</span>, <span> <var>$columns</var> = []</span> )</code>
 
 			<div class="description short">
 				
@@ -220,7 +227,7 @@
 
 			<td class="name"><div>
 			<a class="anchor" href="#_update">#</a>
-			<code><a href="source-class-Steel.Database.IConnection.html#8" title="Go to source code">update</a>( <span> <var>$table</var></span>, <span> <var>$updates</var> = []</span>, <span> <var>$conditions</var> = []</span> )</code>
+			<code><a href="source-class-Steel.Database.IConnection.html#14" title="Go to source code">update</a>( <span> <var>$table</var></span>, <span> <var>$updates</var> = []</span>, <span> <var>$conditions</var> = []</span> )</code>
 
 			<div class="description short">
 				
@@ -249,7 +256,7 @@
 
 			<td class="name"><div>
 			<a class="anchor" href="#_update_all">#</a>
-			<code><a href="source-class-Steel.Database.IConnection.html#9" title="Go to source code">update_all</a>( <span> <var>$table</var></span>, <span> <var>$updates</var> = []</span> )</code>
+			<code><a href="source-class-Steel.Database.IConnection.html#15" title="Go to source code">update_all</a>( <span> <var>$table</var></span>, <span> <var>$updates</var> = []</span> )</code>
 
 			<div class="description short">
 				
@@ -278,7 +285,7 @@
 
 			<td class="name"><div>
 			<a class="anchor" href="#_delete">#</a>
-			<code><a href="source-class-Steel.Database.IConnection.html#10" title="Go to source code">delete</a>( <span> <var>$table</var></span>, <span> <var>$conditions</var> = []</span> )</code>
+			<code><a href="source-class-Steel.Database.IConnection.html#16" title="Go to source code">delete</a>( <span> <var>$table</var></span>, <span> <var>$conditions</var> = []</span> )</code>
 
 			<div class="description short">
 				
@@ -307,7 +314,7 @@
 
 			<td class="name"><div>
 			<a class="anchor" href="#_truncate">#</a>
-			<code><a href="source-class-Steel.Database.IConnection.html#11" title="Go to source code">truncate</a>( <span> <var>$table</var></span> )</code>
+			<code><a href="source-class-Steel.Database.IConnection.html#17" title="Go to source code">truncate</a>( <span> <var>$table</var></span> )</code>
 
 			<div class="description short">
 				
@@ -336,7 +343,7 @@
 
 			<td class="name"><div>
 			<a class="anchor" href="#_prepared">#</a>
-			<code><a href="source-class-Steel.Database.IConnection.html#12" title="Go to source code">prepared</a>( <span> <var>$statement</var></span>, <span> <var>$values</var></span> )</code>
+			<code><a href="source-class-Steel.Database.IConnection.html#18" title="Go to source code">prepared</a>( <span> <var>$statement</var></span>, <span> <var>$values</var></span> )</code>
 
 			<div class="description short">
 				
@@ -365,7 +372,7 @@
 
 			<td class="name"><div>
 			<a class="anchor" href="#_query">#</a>
-			<code><a href="source-class-Steel.Database.IConnection.html#13" title="Go to source code">query</a>( <span> <var>$query</var></span> )</code>
+			<code><a href="source-class-Steel.Database.IConnection.html#19" title="Go to source code">query</a>( <span> <var>$query</var></span> )</code>
 
 			<div class="description short">
 				
@@ -394,7 +401,7 @@
 
 			<td class="name"><div>
 			<a class="anchor" href="#_get_pdo">#</a>
-			<code><a href="source-class-Steel.Database.IConnection.html#14" title="Go to source code">get_pdo</a>( )</code>
+			<code><a href="source-class-Steel.Database.IConnection.html#20" title="Go to source code">get_pdo</a>( )</code>
 
 			<div class="description short">
 				

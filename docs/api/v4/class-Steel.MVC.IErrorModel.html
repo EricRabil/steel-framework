@@ -97,6 +97,9 @@
 	<h1>Interface IErrorModel</h1>
 
 
+	<div class="description">
+	<p>Special interface for the Error Model component of the Error MVC</p>
+	</div>
 
 	<dl class="tree well">
 		<dd style="padding-left:0px">
@@ -121,7 +124,11 @@
 		<b>Namespace:</b> <a href="namespace-Steel.html">Steel</a>\<a href="namespace-Steel.MVC.html">MVC</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-Steel.MVC.IErrorModel.html#5-20" title="Go to source code">Steel/MVC/IErrorModel.php</a>
+				<b>Author:</b>
+				Eric Rabil <a href="mai&#108;&#116;&#111;&#58;&#101;&#114;&#105;&#99;&#106;&#114;&#97;&#98;&#105;&#108;&#64;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;">&#101;&#114;&#105;&#99;&#106;&#114;&#97;&#98;&#105;&#108;&#64;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;</a><br>
+				<b>Since:</b>
+				1.0<br>
+			<b>Located at</b> <a href="source-class-Steel.MVC.IErrorModel.html#5-61" title="Go to source code">Steel/MVC/IErrorModel.php</a>
 		<br>
 	</div>
 
@@ -141,16 +148,21 @@
 
 			<td class="name"><div>
 			<a class="anchor" href="#_set_error_title">#</a>
-			<code><a href="source-class-Steel.MVC.IErrorModel.html#7" title="Go to source code">set_error_title</a>( <span> <var>$title</var></span> )</code>
+			<code><a href="source-class-Steel.MVC.IErrorModel.html#13-18" title="Go to source code">set_error_title</a>( <span>string <var>$title</var></span> )</code>
 
 			<div class="description short">
-				
+				<p>Updates the error title to be displayed, if any</p>
 			</div>
 
 			<div class="description detailed hidden">
-				
+				<p>Updates the error title to be displayed, if any</p>
 
 
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$title</var></dt>
+						<dd></dd>
+					</dl></div>
 
 
 
@@ -163,24 +175,28 @@
 
 			<td class="attributes"><code>
 				 public 
-				
+				string
 				
 				</code>
 			</td>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_get_error_title">#</a>
-			<code><a href="source-class-Steel.MVC.IErrorModel.html#9" title="Go to source code">get_error_title</a>( )</code>
+			<code><a href="source-class-Steel.MVC.IErrorModel.html#20-25" title="Go to source code">get_error_title</a>( )</code>
 
 			<div class="description short">
-				
+				<p>Gets the error title to be displayed, if any</p>
 			</div>
 
 			<div class="description detailed hidden">
-				
+				<p>Gets the error title to be displayed, if any</p>
 
 
 
+					<h4>Returns</h4>
+					<div class="list">
+						string
+					</div>
 
 
 
@@ -199,16 +215,21 @@
 
 			<td class="name"><div>
 			<a class="anchor" href="#_set_error_text">#</a>
-			<code><a href="source-class-Steel.MVC.IErrorModel.html#11" title="Go to source code">set_error_text</a>( <span> <var>$text</var></span> )</code>
+			<code><a href="source-class-Steel.MVC.IErrorModel.html#27-32" title="Go to source code">set_error_text</a>( <span>string <var>$text</var></span> )</code>
 
 			<div class="description short">
-				
+				<p>Sets the error message to be displayed</p>
 			</div>
 
 			<div class="description detailed hidden">
-				
+				<p>Sets the error message to be displayed</p>
 
 
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$text</var></dt>
+						<dd></dd>
+					</dl></div>
 
 
 
@@ -221,24 +242,28 @@
 
 			<td class="attributes"><code>
 				 public 
-				
+				string
 				
 				</code>
 			</td>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_get_error_text">#</a>
-			<code><a href="source-class-Steel.MVC.IErrorModel.html#13" title="Go to source code">get_error_text</a>( )</code>
+			<code><a href="source-class-Steel.MVC.IErrorModel.html#34-39" title="Go to source code">get_error_text</a>( )</code>
 
 			<div class="description short">
-				
+				<p>Gets the error message to be displayed</p>
 			</div>
 
 			<div class="description detailed hidden">
-				
+				<p>Gets the error message to be displayed</p>
 
 
 
+					<h4>Returns</h4>
+					<div class="list">
+						string
+					</div>
 
 
 
@@ -257,16 +282,21 @@
 
 			<td class="name"><div>
 			<a class="anchor" href="#_set_error_type">#</a>
-			<code><a href="source-class-Steel.MVC.IErrorModel.html#15" title="Go to source code">set_error_type</a>( <span> <var>$type</var></span> )</code>
+			<code><a href="source-class-Steel.MVC.IErrorModel.html#41-46" title="Go to source code">set_error_type</a>( <span>string <var>$type</var></span> )</code>
 
 			<div class="description short">
-				
+				<p>Set error type (no default purpose, to be used by applications or MVC)</p>
 			</div>
 
 			<div class="description detailed hidden">
-				
+				<p>Set error type (no default purpose, to be used by applications or MVC)</p>
 
 
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$type</var></dt>
+						<dd></dd>
+					</dl></div>
 
 
 
@@ -279,24 +309,28 @@
 
 			<td class="attributes"><code>
 				 public 
-				
+				string
 				
 				</code>
 			</td>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_get_error_type">#</a>
-			<code><a href="source-class-Steel.MVC.IErrorModel.html#17" title="Go to source code">get_error_type</a>( )</code>
+			<code><a href="source-class-Steel.MVC.IErrorModel.html#48-53" title="Go to source code">get_error_type</a>( )</code>
 
 			<div class="description short">
-				
+				<p>Get error type</p>
 			</div>
 
 			<div class="description detailed hidden">
-				
+				<p>Get error type</p>
 
 
 
+					<h4>Returns</h4>
+					<div class="list">
+						string
+					</div>
 
 
 
@@ -308,24 +342,28 @@
 
 			<td class="attributes"><code>
 				 public 
-				
+				array
 				
 				</code>
 			</td>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_get_context">#</a>
-			<code><a href="source-class-Steel.MVC.IErrorModel.html#19" title="Go to source code">get_context</a>( )</code>
+			<code><a href="source-class-Steel.MVC.IErrorModel.html#55-60" title="Go to source code">get_context</a>( )</code>
 
 			<div class="description short">
-				
+				<p>Get the context (variables that the template will have access to.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				
+				<p>Get the context (variables that the template will have access to.</p>
 
 
 
+					<h4>Returns</h4>
+					<div class="list">
+						array
+					</div>
 
 
 
