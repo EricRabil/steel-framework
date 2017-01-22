@@ -1,30 +1,30 @@
 .panel-danger {
-  -webkit-animation: animate_bg_main 30s;
-  animation: animate_bg_main 30s;
+  -webkit-animation: animate_bg_main 7s;
+  animation: animate_bg_main 7s;
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
 }
 .panel-danger > .panel-heading {
-  -webkit-animation: animate_bg_2 30s;
-  animation: animate_bg_2 30s;
+  -webkit-animation: animate_bg_2 7s;
+  animation: animate_bg_2 7s;
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
 }
 .panel-danger > .panel-heading + .panel-collapse > .panel-body {
-  -webkit-animation: animate_bg_3 30s;
-  animation: animate_bg_3 30s;
+  -webkit-animation: animate_bg_3 7s;
+  animation: animate_bg_3 7s;
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
 }
 .panel-danger > .panel-heading .badge {
-  -webkit-animation: animate_bg_4 30s;
-  animation: animate_bg_4 30s;
+  -webkit-animation: animate_bg_4 7s;
+  animation: animate_bg_4 7s;
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
 }
 .panel-danger > .panel-footer + .panel-collapse > .panel-body {
-  -webkit-animation: animate_bg_5 30s;
-  animation: animate_bg_5 30s;
+  -webkit-animation: animate_bg_5 7s;
+  animation: animate_bg_5 7s;
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
 }
@@ -79,32 +79,32 @@
   100% {border-bottom-color: #ebccd1;}
 }
 .panel-info {
-  -webkit-animation: animate_2_bg_main 30s;
-  animation: animate_2_bg_main 30s;
+  -webkit-animation: animate_2_bg_main 7s;
+  animation: animate_2_bg_main 7s;
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
 }
 .panel-info > .panel-heading {
-  -webkit-animation: animate_2_bg_2 30s;
-  animation: animate_2_bg_2 30s;
+  -webkit-animation: animate_2_bg_2 7s;
+  animation: animate_2_bg_2 7s;
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
 }
 .panel-info > .panel-heading + .panel-collapse > .panel-body {
-  -webkit-animation: animate_2_bg_3 30s;
-  animation: animate_2_bg_3 30s;
+  -webkit-animation: animate_2_bg_3 7s;
+  animation: animate_2_bg_3 7s;
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
 }
 .panel-info > .panel-heading .badge {
-  -webkit-animation: animate_2_bg_4 30s;
-  animation: animate_2_bg_4 30s;
+  -webkit-animation: animate_2_bg_4 7s;
+  animation: animate_2_bg_4 7s;
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
 }
 .panel-info > .panel-footer + .panel-collapse > .panel-body {
-  -webkit-animation: animate_2_bg_5 30s;
-  animation: animate_2_bg_5 30s;
+  -webkit-animation: animate_2_bg_5 7s;
+  animation: animate_2_bg_5 7s;
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
 }
