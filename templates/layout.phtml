@@ -13,6 +13,12 @@
     	foreach ($this->config['resources']['css'] as $name => $url){
     		echo '<link rel="stylesheet" href="'.$url.'" integrity="'.$this->config['resources']['css-sri'][$name].'" crossorigin="anonymous" />'.PHP_EOL;
     	}
+        foreach($styles as $style){
+            if(empty($style['url']) || empty($style['sri'])){
+                continue;
+            }
+            echo '<link rel="stylesheet" href="'.$style['url'].'" integrity="'.$style['sri'].'" crossorigin="anonymous" />'.PHP_EOL;
+        }
     ?>
     </head>
     <body>
@@ -22,7 +28,13 @@
 			    foreach ($this->config['resources']['js'] as $name => $url){
 			    	echo '<script type="text/javascript" src="'.$url.'" integrity="'.$this->config['resources']['js-sri'][$name].'" crossorigin="anonymous"></script>'.PHP_EOL;
 			    }
-			    if(isset($model) && isset($this)){
+                            foreach ($scripts as $script){
+                                if(empty($script['url']) || empty($script['sri'])){
+                                    continue;
+                                }
+			    	echo '<script type="text/javascript" src="'.$script['url'].'" integrity="'.$script['sri'].'" crossorigin="anonymous"></script>'.PHP_EOL;
+			    }
+			    if(isset($model)){
 			    	if($this->config['steel']['useLang']){
 			    		?>
 			    		<script src="/js/steel_localizer.js" type="text/javascript"></script>
