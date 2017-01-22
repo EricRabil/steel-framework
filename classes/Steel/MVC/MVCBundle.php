@@ -105,11 +105,7 @@ class MVCBundle {
         }
         return $this->controller;
     }
-
-    public function throw_error($int) {
-        $this->steel->display_error($int, $args = []);
-    }
-
+    
     private function handle_params() {
         if (empty($this->steel->get_components())) {
             $this->components = [];
