@@ -51,7 +51,7 @@ interface IErrorModel extends \Steel\MVC\IModel {
      * @return string
      */
     public function get_error_type();
-    
+
     /**
      * Get the context (variables that the template will have access to.
      * 

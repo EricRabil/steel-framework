@@ -1,160 +1,160 @@
 .panel-danger {
-  -webkit-animation: animate_bg_main 7s;
-  animation: animate_bg_main 7s;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
+    -webkit-animation: animate_bg_main 7s;
+    animation: animate_bg_main 7s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
 }
 .panel-danger > .panel-heading {
-  -webkit-animation: animate_bg_2 7s;
-  animation: animate_bg_2 7s;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
+    -webkit-animation: animate_bg_2 7s;
+    animation: animate_bg_2 7s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
 }
 .panel-danger > .panel-heading + .panel-collapse > .panel-body {
-  -webkit-animation: animate_bg_3 7s;
-  animation: animate_bg_3 7s;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
+    -webkit-animation: animate_bg_3 7s;
+    animation: animate_bg_3 7s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
 }
 .panel-danger > .panel-heading .badge {
-  -webkit-animation: animate_bg_4 7s;
-  animation: animate_bg_4 7s;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
+    -webkit-animation: animate_bg_4 7s;
+    animation: animate_bg_4 7s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
 }
 .panel-danger > .panel-footer + .panel-collapse > .panel-body {
-  -webkit-animation: animate_bg_5 7s;
-  animation: animate_bg_5 7s;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
+    -webkit-animation: animate_bg_5 7s;
+    animation: animate_bg_5 7s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
 }
 @keyframes animate_bg_main {
-  0% {border-color: #ebccd1;}
-  25% {border-color: #faebcc;}
-  50% {border-color: #bce8f1;}
-  75% {border-color: #d6e9c6;}
-  100% {border-color: #ebccd1;}
+    0% {border-color: #ebccd1;}
+    25% {border-color: #faebcc;}
+    50% {border-color: #bce8f1;}
+    75% {border-color: #d6e9c6;}
+    100% {border-color: #ebccd1;}
 }
 @keyframes animate_bg_2 {
-  0% {color: #a94442;
-  background-color: #f2dede;
-  border-color: #ebccd1;}
-  25% {color: #8a6d3b;
-  background-color: #fcf8e3;
-  border-color: #faebcc;}
-  50% {color: #31708f;
-  background-color: #d9edf7;
-  border-color: #bce8f1;}
-  75% {color: #3c763d;
-  background-color: #dff0d8;
-  border-color: #d6e9c6;}
-  100% {color: #a94442;
-  background-color: #f2dede;
-  border-color: #ebccd1;}
+    0% {color: #a94442;
+        background-color: #f2dede;
+        border-color: #ebccd1;}
+    25% {color: #8a6d3b;
+         background-color: #fcf8e3;
+         border-color: #faebcc;}
+    50% {color: #31708f;
+         background-color: #d9edf7;
+         border-color: #bce8f1;}
+    75% {color: #3c763d;
+         background-color: #dff0d8;
+         border-color: #d6e9c6;}
+    100% {color: #a94442;
+          background-color: #f2dede;
+          border-color: #ebccd1;}
 }
 @keyframes animate_bg_3 {
-  0% {border-top-color: #ebccd1;}
-  25% {border-top-color: #faebcc;}
-  50% {border-top-color: #bce8f1;}
-  75% {border-top-color: #d6e9c6;}
-  100% {border-top-color: #ebccd1;}
+    0% {border-top-color: #ebccd1;}
+    25% {border-top-color: #faebcc;}
+    50% {border-top-color: #bce8f1;}
+    75% {border-top-color: #d6e9c6;}
+    100% {border-top-color: #ebccd1;}
 }
 @keyframes animate_bg_4 {
-  0% {color: #f2dede;
-  background-color: #a94442;}
-  25% {color: #fcf8e3;
-  background-color: #8a6d3b;}
-  50% {color: #d9edf7;
-  background-color: #31708f;}
-  75% {color: #dff0d8;
-  background-color: #3c763d;}
-  100% {color: #f2dede;
-  background-color: #a94442;}
+    0% {color: #f2dede;
+        background-color: #a94442;}
+    25% {color: #fcf8e3;
+         background-color: #8a6d3b;}
+    50% {color: #d9edf7;
+         background-color: #31708f;}
+    75% {color: #dff0d8;
+         background-color: #3c763d;}
+    100% {color: #f2dede;
+          background-color: #a94442;}
 }
 @keyframes animate_bg_5 {
-  0% {border-bottom-color: #ebccd1;}
-  25% {border-bottom-color: #faebcc;}
-  50% {border-bottom-color: #bce8f1;}
-  75% {border-bottom-color: #d6e9c6;}
-  100% {border-bottom-color: #ebccd1;}
+    0% {border-bottom-color: #ebccd1;}
+    25% {border-bottom-color: #faebcc;}
+    50% {border-bottom-color: #bce8f1;}
+    75% {border-bottom-color: #d6e9c6;}
+    100% {border-bottom-color: #ebccd1;}
 }
 .panel-info {
-  -webkit-animation: animate_2_bg_main 7s;
-  animation: animate_2_bg_main 7s;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
+    -webkit-animation: animate_2_bg_main 7s;
+    animation: animate_2_bg_main 7s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
 }
 .panel-info > .panel-heading {
-  -webkit-animation: animate_2_bg_2 7s;
-  animation: animate_2_bg_2 7s;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
+    -webkit-animation: animate_2_bg_2 7s;
+    animation: animate_2_bg_2 7s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
 }
 .panel-info > .panel-heading + .panel-collapse > .panel-body {
-  -webkit-animation: animate_2_bg_3 7s;
-  animation: animate_2_bg_3 7s;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
+    -webkit-animation: animate_2_bg_3 7s;
+    animation: animate_2_bg_3 7s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
 }
 .panel-info > .panel-heading .badge {
-  -webkit-animation: animate_2_bg_4 7s;
-  animation: animate_2_bg_4 7s;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
+    -webkit-animation: animate_2_bg_4 7s;
+    animation: animate_2_bg_4 7s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
 }
 .panel-info > .panel-footer + .panel-collapse > .panel-body {
-  -webkit-animation: animate_2_bg_5 7s;
-  animation: animate_2_bg_5 7s;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
+    -webkit-animation: animate_2_bg_5 7s;
+    animation: animate_2_bg_5 7s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
 }
 @keyframes animate_2_bg_main {
-  0% {border-color: #bce8f1;}
-  25% {border-color: #d6e9c6;}
-  50% {border-color: #ebccd1;}
-  75% {border-color: #faebcc;}
-  100% {border-color: #bce8f1;}
+    0% {border-color: #bce8f1;}
+    25% {border-color: #d6e9c6;}
+    50% {border-color: #ebccd1;}
+    75% {border-color: #faebcc;}
+    100% {border-color: #bce8f1;}
 }
 @keyframes animate_2_bg_2 {
-  0% {color: #31708f;
-  background-color: #d9edf7;
-  border-color: #bce8f1;}
-  25% {color: #3c763d;
-  background-color: #dff0d8;
-  border-color: #d6e9c6;}
-  50% {color: #a94442;
-  background-color: #f2dede;
-  border-color: #ebccd1;}
-  75% {color: #8a6d3b;
-  background-color: #fcf8e3;
-  border-color: #faebcc;}
-  100% {color: #31708f;
-  background-color: #d9edf7;
-  border-color: #bce8f1;}
+    0% {color: #31708f;
+        background-color: #d9edf7;
+        border-color: #bce8f1;}
+    25% {color: #3c763d;
+         background-color: #dff0d8;
+         border-color: #d6e9c6;}
+    50% {color: #a94442;
+         background-color: #f2dede;
+         border-color: #ebccd1;}
+    75% {color: #8a6d3b;
+         background-color: #fcf8e3;
+         border-color: #faebcc;}
+    100% {color: #31708f;
+          background-color: #d9edf7;
+          border-color: #bce8f1;}
 }
 @keyframes animate_2_bg_3 {
-  0% {border-top-color: #bce8f1;}
-  25% {border-top-color: #d6e9c6;}
-  50% {border-top-color: #ebccd1;}
-  75% {border-top-color: #faebcc;}
-  100% {border-top-color: #bce8f1;}
+    0% {border-top-color: #bce8f1;}
+    25% {border-top-color: #d6e9c6;}
+    50% {border-top-color: #ebccd1;}
+    75% {border-top-color: #faebcc;}
+    100% {border-top-color: #bce8f1;}
 }
 @keyframes animate_2_bg_4 {
-  0% {color: #d9edf7;
-  background-color: #31708f;}
-  25% {color: #dff0d8;
-  background-color: #3c763d;}
-  50% {color: #f2dede;
-  background-color: #a94442;}
-  75% {color: #fcf8e3;
-  background-color: #8a6d3b;}
-  100% {color: #d9edf7;
-  background-color: #31708f;}
+    0% {color: #d9edf7;
+        background-color: #31708f;}
+    25% {color: #dff0d8;
+         background-color: #3c763d;}
+    50% {color: #f2dede;
+         background-color: #a94442;}
+    75% {color: #fcf8e3;
+         background-color: #8a6d3b;}
+    100% {color: #d9edf7;
+          background-color: #31708f;}
 }
 @keyframes animate_2_bg_5 {
-  0% {border-bottom-color: #bce8f1;}
-  25% {border-bottom-color: #d6e9c6;}
-  50% {border-bottom-color: #ebccd1;}
-  75% {border-bottom-color: #faebcc;}
-  100% {border-bottom-color: #bce8f1;}
+    0% {border-bottom-color: #bce8f1;}
+    25% {border-bottom-color: #d6e9c6;}
+    50% {border-bottom-color: #ebccd1;}
+    75% {border-bottom-color: #faebcc;}
+    100% {border-bottom-color: #bce8f1;}
 }

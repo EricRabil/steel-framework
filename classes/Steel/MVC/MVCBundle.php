@@ -11,7 +11,7 @@ namespace Steel\MVC;
  * @author  Eric Rabil <ericjrabil@gmail.com>
  */
 class MVCBundle {
-    
+
     /**
      * The data source used to assemble the bundle.
      * 
@@ -20,49 +20,49 @@ class MVCBundle {
      * @var MVCIdentifier
      */
     private $mvcID;
-    
+
     /**
      * The model attached to this MVC.
      * 
      * @var IModel
      */
     private $model;
-    
+
     /**
      * The view attached to this MVC.
      * 
      * @var IView
      */
     private $view;
-    
+
     /**
      * The controller attached to this MVC.
      * 
      * @var IController
      */
     private $controller;
-    
+
     /**
      * The URL parameters
      * 
      * @var array
      */
     private $params = [];
-    
+
     /**
      * Determines if the bundle has already been initialized (used as a safeguard for poorly made code)
      * 
      * @var boolean
      */
     private $initialized = false;
-    
+
     /**
      * The components
      *
      * @var array
      */
     private $components;
-    
+
     /**
      * @var \Steel\Steel
      */
@@ -109,6 +109,7 @@ class MVCBundle {
      * 1 = Success
      * 2 = Not found
      */
+
     /**
      * Runs the controller, then the view.
      * 
@@ -127,16 +128,16 @@ class MVCBundle {
                 $this->controller->{$this->components[1]}($this->params);
                 $this->view->render();
                 return 1;
-            }else {
+            } else {
                 return 2;
             }
-        }else {
+        } else {
             $this->controller->main($this->params);
             $this->view->render();
             return 1;
         }
     }
-    
+
     /**
      * Get the MVC Identifier
      * 
@@ -158,7 +159,7 @@ class MVCBundle {
             require_once dirname(__FILE__) . '/../../../controllers/' . $mvcidentifier->get_controller_name() . '.php';
             require_once dirname(__FILE__) . '/../../../views/' . $mvcidentifier->get_view_name() . '.php';
             return true;
-        }else {
+        } else {
             return false;
         }
     }
@@ -207,7 +208,7 @@ class MVCBundle {
         }
         return $this->controller;
     }
-    
+
     private function handle_params() {
         if (empty($this->steel->get_components())) {
             $this->components = [];

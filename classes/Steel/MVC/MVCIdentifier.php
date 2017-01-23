@@ -16,42 +16,42 @@ class MVCIdentifier {
      * @var string
      */
     private $uid;
-    
+
     /**
      * The top-level path of the MVC.
      * 
      * @var string
      */
     private $path;
-    
+
     /**
      * The file/class name of the model.
      * 
      * @var string
      */
     private $modelName;
-    
+
     /**
      * The file/class name of the view.
      * 
      * @var string
      */
     private $viewName;
-    
+
     /**
      * The file/class name of the controller.
      * 
      * @var string
      */
     private $controllerName;
-    
+
     /**
      * The list of paths (functions) that cannot be called by the user.
      * 
      * @var array
      */
     private $forbiddenPaths;
-    
+
     /**
      * The files required by the MVC.
      * 

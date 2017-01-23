@@ -1,4 +1,5 @@
 <?php
+
 $dir = dirname(__FILE__);
 require_once $dir . '/Settings.php';
 require_once $dir . '/ArrayMethods.php';

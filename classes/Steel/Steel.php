@@ -1,4 +1,5 @@
 <?php
+
 namespace Steel;
 
 require_once 'autoload.php';
@@ -17,15 +18,10 @@ class Steel {
     private $components;
     private $path;
     public $config;
-
     private $initialized = false;
-
     private $dir;
-
     private $sreheader = "<!-- Steel Runtime Error: ";
-
     public $application;
-
     public $database;
 
     /**
@@ -56,7 +52,7 @@ class Steel {
             }
             if ($this->config['database']['enabled']) {
                 $this->database = new Connection($this->config['database']);
-            }else {
+            } else {
                 $this->database = false;
             }
             if ($this->config['steel']['autoinclude']) {
@@ -64,7 +60,7 @@ class Steel {
             }
             if ($this->config['steel']['useApplication']) {
                 $this->use_app_controller();
-            }else {
+            } else {
                 $this->application = null;
             }
             $this->process_request();
@@ -72,7 +68,6 @@ class Steel {
         }
     }
 
-    
     private function use_app_controller() {
         if ($this->config['steel']['useApplication']) {
             require_once $this->config['steel']['application']['filepath'];
@@ -113,11 +108,11 @@ class Steel {
         if (!file_exists($this->dir . '/../../include')) {
             if (!is_writable($this->dir . '/../..')) {
                 echo $this->sreheader . 'Failed to create missing \'include\' directory. Check that PHP has the proper execution permissions. -->' . PHP_EOL;
-            }else {
+            } else {
                 mkdir($this->dir . '/../../include', 0755, true);
                 $this->require_include_folder();
             }
-        }else {
+        } else {
             $this->require_include_folder();
         }
     }

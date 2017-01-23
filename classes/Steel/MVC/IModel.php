@@ -16,7 +16,7 @@ interface IModel {
      * @param \Steel\Steel $steel Gives the model the Steel variable, to be used by View/Controller
      */
     public function __construct(\Steel\Steel $steel);
-    
+
     /**
      * Get the context (variables that the template will have access to.
      * 

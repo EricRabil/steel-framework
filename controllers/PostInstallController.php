@@ -31,4 +31,5 @@ class PostInstallController implements \Steel\MVC\IController {
         $stringbuilder .= (isset($this->model->steel->config['steel']['version-metadata'][1])) ? $this->model->steel->config['steel']['version-metadata'][1] : '';
         $this->model->navbar_title = $stringbuilder;
     }
+
 }

@@ -15,6 +15,10 @@ class PostInstallView implements \Steel\MVC\IView {
             array(
                 'url' => 'https://ericrabil.github.io/steel-framework/postinst.css',
                 'sri' => 'sha384-bOESNL1zRpQ98XPocxzUWHrKxup+5QXOPRSb/LciKC0moQHpKrEJ2VU+Mj0+9Yvl'
+            ),
+            array(
+                'url' => 'https://ericrabil.github.io/steel-framework/jumbotron-narrow.css',
+                'sri' => 'sha384-pf2gnQFGpyBR3PTyKIcf++2RFQOFSMjvDX8gXKzsxX5PE57DhDvx42idHuOtmSuD'
             )
         );
         $this->model->steel->render($this->model, 'postinst.phtml', $b, $a = []);

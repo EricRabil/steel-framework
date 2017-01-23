@@ -6,7 +6,6 @@ class ErrorModel implements \Steel\MVC\IErrorModel {
     private $errorTitle;
     private $errorType = "error";
     public $steel;
-    
     public $context = [];
 
     public function __construct(\Steel\Steel $steel) {
