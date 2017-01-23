@@ -1,79 +1,77 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Steel 1.0 </title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
-        <link rel="stylesheet" href="https://ericrabil.github.io/steel-framework/postinst.css" integrity="sha384-bOESNL1zRpQ98XPocxzUWHrKxup+5QXOPRSb/LciKC0moQHpKrEJ2VU+Mj0+9Yvl" crossorigin="anonymous" />
+	    <meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+        		<title>Steel 1.0 </title>
+    		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://ericrabil.github.io/steel-framework/postinst.css" integrity="sha384-bOESNL1zRpQ98XPocxzUWHrKxup+5QXOPRSb/LciKC0moQHpKrEJ2VU+Mj0+9Yvl" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://ericrabil.github.io/steel-framework/jumbotron-narrow.css" integrity="sha384-pf2gnQFGpyBR3PTyKIcf++2RFQOFSMjvDX8gXKzsxX5PE57DhDvx42idHuOtmSuD" crossorigin="anonymous" />
     </head>
     <body>
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand">1.0 </a>
-                </div>
-                <div id="navbar" class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="http://steel.ericrabil.com/docs/api/latest/">Docs</a></li>
-                        <li><a href="https://www.github.com/EricRabil/steel-framework">GitHub</a></li>
-                        <li><a href="https://www.github.com/EricRabil/steel-framework/wiki">Wiki</a></li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="active">
-                            <a style="color:#57af59">Release
-                            </a></li>
-                    </ul>
-                </div><!--/.nav-collapse -->
-            </div><!--/.container-fluid -->
-        </nav>
-        <div class="jumbotron">
-            <div class="container">
-                <h1>Hello, and Welcome to Steel.</h1>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 col-lg-4">
-                    <div class="panel panel-info">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">What is this?</h3>
-                        </div>
-                        <div class="panel-body">
-                            This is the default landing page for the Steel Framework. It will guide you in the first steps to using Steel.
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-lg-8">
-                    <div class="panel panel-danger">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Alright, how do I get started?</h3>
-                        </div>
-                        <ul class="list-group">
-                            <li class="list-group-item active">To start making your app (hopefully you've read the docs and know how to make an app,) you need to configure Steel. Open up <b>/classes/Steel/Settings.php</b> and configure the following to get started:</li>
-                            <li class="list-group-item">If you have files to include into Steel, set ['steel']['autoinclude'] to true and place your PHP files in the <b>/include</b> directory.</li>
-                            <li class="list-group-item">If you'll be using an Application to hook into Steel, set ['steel']['useApplication'] to true and make sure your ['steel']['application'] is properly entered. Check the wiki for more info.</li>
-                            <li class="list-group-item">If you plan on using sessions, set ['steel']['useSessions'] to true.</li>
-                            <li class="list-group-item">If you plan on using the integrated localizer, set ['steel']['useLang'] to true.</li>
-                            <li class="list-group-item">The ['resources']['css'] and ['resources']['js'] arrays are arrays that autoload your resources. This requires Subresource Integrity. If you want to add your own, just follow the format of the entries already there.</li>
-                            <li class="list-group-item">Change ['general']['host'] to the domain name you want pages to redirect to. EX: <b>{['general']['host']}/error/404</b> </li>
-                            <li class="list-group-item">Configure ['database'] to meet your database criteria if you plan on using the built in database system.</li>
-                            <li class="list-group-item">Lastly, when you're ready, set ['steel']['postinst'] to false. That will disable this page and let you get to work!</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+	        <div class="container">
+      <nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand">Steel 1.0 </a>
+		</div>
+		<div id="navbar" class="navbar-collapse collapse">
+		<ul class="nav navbar-nav">
+			<li class="active"><a href="#">Home</a></li>
+			<li><a href="http://steel.ericrabil.com/docs/api/latest/">Docs</a></li>
+			<li><a href="https://www.github.com/EricRabil/steel-framework">GitHub</a></li>
+			<li><a href="https://www.github.com/EricRabil/steel-framework/wiki">Wiki</a></li>
+		</ul>
+		<ul class="nav navbar-nav navbar-right">
+			<li class="active">
+								<a style="color:#57af59">Release
+								</a></li>
+		</ul>
+		</div><!--/.nav-collapse -->
+	</div><!--/.container-fluid -->
+</nav>
+
+      <div class="jumbotron">
+        <h1>Hello, and Welcome to Steel.</h1>
+        <p class="lead">Steel is an easy-to-use framework built from the ground up to give you the tools you need to build your application.</p>
+        <p><a class="btn btn-lg btn-info" href="https://www.github.com/EricRabil/steel-framework/wiki" role="button">Read the docs</a></p>
+      </div>
+
+      <div class="row marketing">
+        <div class="col-lg-12">
+          <h4>Why am I seeing this page?</h4>
+          <p>This is the default MVC for the Steel Framework. It is used in place of an ugly "Hello World!" screen :)</p>
         </div>
 
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <div class="col-lg-12">
+          <h4>Quick-Start</h4>
+          <ul class="list-group">
+          <li class="list-group-item active">To start making your app (hopefully you've read the docs and know how to make an app,) you need to configure Steel. Open up <b>/classes/Steel/Settings.php</b> and configure the following to get started:</li>
+          <li class="list-group-item">If you have files to include into Steel, set ['steel']['autoinclude'] to true and place your PHP files in the <b>/include</b> directory.</li>
+          <li class="list-group-item">If you'll be using an Application to hook into Steel, set ['steel']['useApplication'] to true and make sure your ['steel']['application'] is properly entered. Check the wiki for more info.</li>
+          <li class="list-group-item">If you plan on using sessions, set ['steel']['useSessions'] to true.</li>
+          <li class="list-group-item">If you plan on using the integrated localizer, set ['steel']['useLang'] to true.</li>
+          <li class="list-group-item">The ['resources']['css'] and ['resources']['js'] arrays are arrays that autoload your resources. This requires Subresource Integrity. If you want to add your own, just follow the format of the entries already there.</li>
+          <li class="list-group-item">Change ['general']['host'] to the domain name you want pages to redirect to. EX: <b>{['general']['host']}/error/404</b> </li>
+          <li class="list-group-item">Configure ['database'] to meet your database criteria if you plan on using the built in database system.</li>
+          <li class="list-group-item">Lastly, when you're ready, set ['steel']['postinst'] to false. That will disable this page and let you get to work!</li>
+        </ul>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <p>Made with love and the MIT license</p>
+      </footer>
+
+    </div>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     </body>
 </html>
