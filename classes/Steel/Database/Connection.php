@@ -26,12 +26,8 @@ class Connection implements IConnection {
      * Establishes the connection with the database and initializes itself.
      * 
      * @param array The database sub-array from the Steel->config array.
-     * @return null If the database array is empty.
      */
     public function __construct($database = []) {
-        if (empty($database)) {
-            return null;
-        }
         if ($database['enabled']) {
             try {
                 $this->conn = new PDO('mysql:dbname=' . $database['dbname'] . ';host=' . $database['ip'] . ';port=' . $database['port'], $database['username'], $database['password'], array(PDO::ATTR_PERSISTENT => TRUE));
