@@ -155,9 +155,9 @@ class MVCBundle {
     public function set_mvc_identifier($mvcidentifier) {
         if (!$this->initialized) {
             $this->mvcID = $mvcidentifier;
-            require_once $steel->directories['models'] . $mvcidentifier->get_model_name() . '.php';
-            require_once $steel->directories['controllers'] . $mvcidentifier->get_controller_name() . '.php';
-            require_once $steel->directories['views'] . $mvcidentifier->get_view_name() . '.php';
+            require_once $this->steel->directories['models'] . $mvcidentifier->get_model_name() . '.php';
+            require_once $this->steel->directories['controllers'] . $mvcidentifier->get_controller_name() . '.php';
+            require_once $this->steel->directories['views'] . $mvcidentifier->get_view_name() . '.php';
             return true;
         } else {
             return false;
