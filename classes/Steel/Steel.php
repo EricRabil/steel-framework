@@ -34,17 +34,30 @@ class Steel {
         $view_default = __DIR__ . '/../../views';
         $controller_default = __DIR__ . '/../../controllers';
         if(!array_key_exists('models', $array) || empty($array['models']) || !file_exists($array['models'])){
+            $this->throw_sre('The custom models directory does not exist or is invalid. It has been ignored and the default was used instead.');
             $array['models'] = $model_default;
         }
         if(!array_key_exists('views', $array) || empty($array['views']) || !file_exists($array['views'])){
+            $this->throw_sre('The custom views directory does not exist or is invalid. It has been ignored and the default was used instead.');
             $array['views'] = $view_default;
         }
         if(!array_key_exists('controllers', $array) || empty($array['controllers'] || !file_exists($array['controllers']))){
+            $this->throw_sre('The custom controllers directory does not exist or is invalid. It has been ignored and the default was used instead.');
             $array['controllers'] = $controller_default;
         }
         return $array;
     }
     
+    /**
+     * Prints an HTML comment with the desired error
+     * 
+     * Should only be used when urgent. Do not use this for compromising information.
+     * 
+     * @param string $message The message to pass.
+     */
+    public function throw_sre($message){
+        echo $this->sreheader . $message . ' -->'.PHP_EOL;
+    }
 
     /**
      * Maps an MVC to Steel.
@@ -129,7 +142,7 @@ class Steel {
     private function require_includes() {
         if (!file_exists($this->dir . '/../../include')) {
             if (!is_writable($this->dir . '/../..')) {
-                echo $this->sreheader . 'Failed to create missing \'include\' directory. Check that PHP has the proper execution permissions. -->' . PHP_EOL;
+                $this->throw_sre('Failed to create missing \'include\' directory. Check that PHP has the proper execution permissions.');
             } else {
                 mkdir($this->dir . '/../../include', 0755, true);
                 $this->require_include_folder();
