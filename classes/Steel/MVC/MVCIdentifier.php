@@ -70,7 +70,7 @@ class MVCIdentifier {
      * @param array $forbidden The array of forbidden functions.
      * @param array $dependencies The array of required files.
      */
-    public function __construct($uid, $path, $model, $view, $controller, $forbidden = array('__construct', 'main'), $dependencies = []) {
+    public function __construct($uid, $path, $model, $view, $controller, $forbidden = ['__construct', 'main'], $dependencies = []) {
         $this->uid = $uid;
         $this->path = $path;
         $this->modelName = $model;

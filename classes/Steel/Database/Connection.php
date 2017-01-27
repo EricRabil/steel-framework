@@ -30,7 +30,7 @@ class Connection implements IConnection {
     public function __construct($database = []) {
         if ($database['enabled']) {
             try {
-                $this->conn = new PDO('mysql:dbname=' . $database['dbname'] . ';host=' . $database['ip'] . ';port=' . $database['port'], $database['username'], $database['password'], array(PDO::ATTR_PERSISTENT => TRUE));
+                $this->conn = new PDO('mysql:dbname=' . $database['dbname'] . ';host=' . $database['ip'] . ';port=' . $database['port'], $database['username'], $database['password'], [PDO::ATTR_PERSISTENT => TRUE]);
                 $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 $this->conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
                 $this->conn->exec("SET NAMES utf8");

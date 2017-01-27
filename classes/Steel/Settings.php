@@ -34,7 +34,7 @@ class Settings {
 
         $this->config['steel']['autoinclude'] = false;
         $this->config['steel']['useApplication'] = false;
-        $this->config['steel']['application'] = array('filepath' => dirname(__FILE__) . '/../../app/Application.php', 'fully_qualified_name' => '\MyCoolApplicationNamespace\MyCoolApplication');
+        $this->config['steel']['application'] = ['filepath' => dirname(__FILE__) . '/../../app/Application.php', 'fully_qualified_name' => '\MyCoolApplicationNamespace\MyCoolApplication'];
 
         $this->config['steel']['useSessions'] = false;
 

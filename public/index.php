@@ -7,6 +7,6 @@ require '../classes/Steel/Steel.php';
 
 $steel = new Steel\Steel;
 
-$steel->map(new \Steel\MVC\MVCIdentifier('MVC-INDEX', 'index', 'IndexModel', 'IndexView', 'IndexController', array(), array()));
+$steel->map(new \Steel\MVC\MVCIdentifier('MVC-INDEX', 'index', 'IndexModel', 'IndexView', 'IndexController', [], []));
 
 $steel->init();

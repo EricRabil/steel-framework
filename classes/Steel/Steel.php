@@ -140,7 +140,7 @@ class Steel {
         $this->components = explode('/', $this->path);
         $class = $this->components[0];
         if (!array_key_exists($class, $this->mvcMap)) {
-            $this->display_error(2, array('path' => $this->path));
+            $this->display_error(2, ['path' => $this->path]);
             return;
         }
         $mvcID = $this->mvcMap[$class];
@@ -151,10 +151,10 @@ class Steel {
             if ($status != 1) {
                 switch ($status) {
                     case 2:
-                        $this->display_error(2, array('path' => $this->path));
+                        $this->display_error(2, ['path' => $this->path]);
                         break;
                     case 3:
-                        $this->display_error(3, array('message' => "MVC " + $mvcID->get_uid + " has already been executed."));
+                        $this->display_error(3, ['message' => "MVC " + $mvcID->get_uid + " has already been executed."]);
                         break;
                 }
             }
@@ -179,7 +179,7 @@ class Steel {
      * @param array $args Array with the error arguments (unique to each error code)
      */
     public function display_error($int, $args) {
-        $errorID = new \Steel\MVC\MVCIdentifier('MVC-ERR', 'error', 'ErrorModel', 'ErrorView', 'ErrorController', array('__construct', 'main'), array($this->dir . '/MVC/IErrorModel.php', $this->dir . '/MVC/IErrorController.php'));
+        $errorID = new \Steel\MVC\MVCIdentifier('MVC-ERR', 'error', 'ErrorModel', 'ErrorView', 'ErrorController', ['__construct', 'main'], [$this->dir . '/MVC/IErrorModel.php', $this->dir . '/MVC/IErrorController.php']);
         $mvc = new \Steel\MVC\MVCBundle($this, $errorID);
         $mvc->init();
         $mvc->get_controller()->parse_error($int, $args);

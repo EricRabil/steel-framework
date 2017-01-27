@@ -4,11 +4,11 @@ class ErrorController implements \Steel\MVC\IErrorController {
 
     private $model;
     private $bundle;
-    private $error_map = array(
+    private $error_map = [
         404 => 'not_found',
         2 => 'not_found',
         3 => 'internal_error'
-    );
+    ];
 
     public function __construct(\Steel\MVC\MVCBundle $bundle) {
         $this->model = $bundle->get_model();

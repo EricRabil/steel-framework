@@ -7,9 +7,7 @@ class MyCoolApplication implements \Steel\IApplication {
     private $steel;
     private $bundle;
     private $args;
-    private $intercepted_classes = array(
-        'index'
-    );
+    private $intercepted_classes = ['index'];
 
     public function __constructor(\Steel\Steel $steel) {
         $this->steel = $steel;
