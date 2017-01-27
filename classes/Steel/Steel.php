@@ -82,22 +82,10 @@ class Steel {
             $conf = new \Steel\Settings();
             $conf->setup();
             $this->config = $conf->getConfig();
-            if ($this->config['steel']['useSessions']) {
-                session_start();
-            }
-            if ($this->config['database']['enabled']) {
-                $this->database = new Connection($this->config['database']);
-            } else {
-                $this->database = false;
-            }
-            if ($this->config['steel']['autoinclude']) {
-                $this->require_includes();
-            }
-            if ($this->config['steel']['useApplication']) {
-                $this->use_app_controller();
-            } else {
-                $this->application = null;
-            }
+            $this->config['steel']['useSessions'] ? session_start() : null;
+            $this->config['database']['enabled'] ? $this->database = new Connection($this->config['database']) : $this->database = false;
+            $this->config['steel']['autoinclude'] ? $this->require_includes() : null;
+            $this->config['steel']['useApplication'] ? $this->use_app_controller() : $this->application = null;
             $this->process_request();
             $this->initialized = true;
         }
@@ -130,9 +118,7 @@ class Steel {
         $include = [];
         foreach ($files as $file) {
             $extension = explode('.', $file);
-            if (isset($extension[1]) && !empty($extension[1]) && $extension[1] === "php") {
-                array_push($include, $file);
-            }
+            (isset($extension[1]) && !empty($extension[1]) && $extension[1] === "php") ? array_push($include, $file) : null;
         }
         foreach ($include as $file) {
             require $this->dir . "/../../include/" . $file;
@@ -237,6 +223,7 @@ class Steel {
      * @param type $page Template file to load
      * @param type $styles CSS files to load
      * @param type $scripts JS files to load
+     * @param array $configuration The configuration array to load extra settings from.
      */
     
     public function render(\Steel\MVC\IModel $model, $page, \Steel\MVC\RenderConfiguration $configuration, $styles = [], $scripts = []) {
