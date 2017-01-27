@@ -26,24 +26,17 @@ class Steel {
     public $database;
     
     public function __construct($directories = ['models' => __DIR__ . '/../../models/', 'views' => __DIR__ . '/../../views/', 'controllers' => __DIR__ . '/../../controllers/']) {
-        $this->directories = $this->validate_directory_map($directories);
+        $this->directories = $this->sanitize_path_map($directories);
     }
     
-    private function validate_directory_map($array = []){
-        $model_default = __DIR__ . '/../../models';
-        $view_default = __DIR__ . '/../../views';
-        $controller_default = __DIR__ . '/../../controllers';
-        if(!array_key_exists('models', $array) || empty($array['models']) || !file_exists($array['models'])){
-            $this->throw_sre('The custom models directory does not exist or is invalid. It has been ignored and the default was used instead.');
-            $array['models'] = $model_default;
-        }
-        if(!array_key_exists('views', $array) || empty($array['views']) || !file_exists($array['views'])){
-            $this->throw_sre('The custom views directory does not exist or is invalid. It has been ignored and the default was used instead.');
-            $array['views'] = $view_default;
-        }
-        if(!array_key_exists('controllers', $array) || empty($array['controllers'] || !file_exists($array['controllers']))){
-            $this->throw_sre('The custom controllers directory does not exist or is invalid. It has been ignored and the default was used instead.');
-            $array['controllers'] = $controller_default;
+    private function sanitize_path_map($array){
+        $required_keys = ['models' => __DIR__ . '/../../models/', 'views' => __DIR__ . '/../../views/', 'controllers' => __DIR__ . '/../../controllers/'];
+        $keys = array_keys($array);
+        foreach(array_keys($required_keys) as $key){
+            if(!in_array($key, $keys) || !file_exists($array[$key])){
+                $this->throw_sre('The configured '.$key.' directory does not exist or is invalid. It has been ignored and the default was used instead.');
+                $array[$key] = $required_keys[$key];
+            }
         }
         return $array;
     }
@@ -223,7 +216,7 @@ class Steel {
      * @param type $page Template file to load
      * @param type $styles CSS files to load
      * @param type $scripts JS files to load
-     * @param array $configuration The configuration array to load extra settings from.
+     * @param \Steel\MVC\RenderConfiguration $configuration The configuration array to load extra settings from.
      */
     
     public function render(\Steel\MVC\IModel $model, $page, \Steel\MVC\RenderConfiguration $configuration, $styles = [], $scripts = []) {
