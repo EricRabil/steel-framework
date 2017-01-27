@@ -10,6 +10,7 @@
             <title><?php echo $model->page_title; ?></title>
             <?php
         }
+        if(!$configuration->disable_css_autoload){
             foreach ($this->config['resources']['css'] as $stylepack) {
                 echo '<link rel="stylesheet" href="' . $stylepack['url'] . '" integrity="' . $stylepack['sri'] . '" crossorigin="anonymous" />' . PHP_EOL;
             }
@@ -26,8 +27,10 @@
         <?php
         require dirname(__FILE__) . '/' . $page;
         echo PHP_EOL;
+        if(!$configuration->disable_js_autoload){
             foreach ($this->config['resources']['js'] as $scriptpack) {
                 echo '<script type="text/javascript" src="' . $scriptpack['url'] . '" integrity="' . $scriptpack['sri'] . '" crossorigin="anonymous"></script>' . PHP_EOL;
+            }
         }
         foreach ($scripts as $script) {
             if (empty($script['url']) || empty($script['sri'])) {

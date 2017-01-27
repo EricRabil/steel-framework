@@ -203,10 +203,11 @@ class Steel {
      * @param type $styles CSS files to load
      * @param type $scripts JS files to load
      */
-    public function render(\Steel\MVC\IModel $model, $page, $styles = [], $scripts = []) {
+    
+    public function render(\Steel\MVC\IModel $model, $page, \Steel\MVC\RenderConfiguration $configuration, $styles = [], $scripts = []) {
         $context = $model->get_context();
         extract($context);
         require_once $this->dir . '/../../templates/layout.phtml';
     }
 
-}
+}  
