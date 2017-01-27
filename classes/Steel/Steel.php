@@ -16,6 +16,7 @@ class Steel {
 
     private $mvcMap = [];
     private $components;
+    public $directories = [];
     private $path;
     public $config;
     private $initialized = false;
@@ -23,6 +24,27 @@ class Steel {
     private $sreheader = "<!-- Steel Runtime Error: ";
     public $application;
     public $database;
+    
+    public function __construct($directories = ['models' => __DIR__ . '/../../models/', 'views' => __DIR__ . '/../../views/', 'controllers' => __DIR__ . '/../../controllers/']) {
+        $this->directories = $this->validate_directory_map($directories);
+    }
+    
+    private function validate_directory_map($array = []){
+        $model_default = __DIR__ . '/../../models';
+        $view_default = __DIR__ . '/../../views';
+        $controller_default = __DIR__ . '/../../controllers';
+        if(!array_key_exists('models', $array) || empty($array['models']) || !file_exists($array['models'])){
+            $array['models'] = $model_default;
+        }
+        if(!array_key_exists('views', $array) || empty($array['views']) || !file_exists($array['views'])){
+            $array['views'] = $view_default;
+        }
+        if(!array_key_exists('controllers', $array) || empty($array['controllers'] || !file_exists($array['controllers']))){
+            $array['controllers'] = $controller_default;
+        }
+        return $array;
+    }
+    
 
     /**
      * Maps an MVC to Steel.

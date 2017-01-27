@@ -77,14 +77,14 @@ class MVCBundle {
      * @param \Steel\MVC\MVCIdentifier $mvcidentifier Used to access any MVC metadata.
      */
     public function __construct(\Steel\Steel $steel, \Steel\MVC\MVCIdentifier $mvcidentifier) {
+        $this->steel = $steel;
         $this->mvcID = $mvcidentifier;
         foreach ($this->mvcID->get_dependencies() as $path) {
             require_once $path;
         }
-        require_once dirname(__FILE__) . '/../../../models/' . $mvcidentifier->get_model_name() . '.php';
-        require_once dirname(__FILE__) . '/../../../controllers/' . $mvcidentifier->get_controller_name() . '.php';
-        require_once dirname(__FILE__) . '/../../../views/' . $mvcidentifier->get_view_name() . '.php';
-        $this->steel = $steel;
+        require_once $steel->directories['models'] . $mvcidentifier->get_model_name() . '.php';
+        require_once $steel->directories['controllers'] . $mvcidentifier->get_controller_name() . '.php';
+        require_once $steel->directories['views'] . $mvcidentifier->get_view_name() . '.php';
     }
 
     /**
@@ -155,9 +155,9 @@ class MVCBundle {
     public function set_mvc_identifier($mvcidentifier) {
         if (!$this->initialized) {
             $this->mvcID = $mvcidentifier;
-            require_once dirname(__FILE__) . '/../../../models/' . $mvcidentifier->get_model_name() . '.php';
-            require_once dirname(__FILE__) . '/../../../controllers/' . $mvcidentifier->get_controller_name() . '.php';
-            require_once dirname(__FILE__) . '/../../../views/' . $mvcidentifier->get_view_name() . '.php';
+            require_once $steel->directories['models'] . $mvcidentifier->get_model_name() . '.php';
+            require_once $steel->directories['controllers'] . $mvcidentifier->get_controller_name() . '.php';
+            require_once $steel->directories['views'] . $mvcidentifier->get_view_name() . '.php';
             return true;
         } else {
             return false;
