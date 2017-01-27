@@ -20,7 +20,7 @@ interface IController {
     /**
      * Runs the controller with optionally added parameters
      * 
-     * @param type $params Any added instructions for the controller
+     * @param array $params Any added instructions for the controller
      */
     public function main($params);
 }
