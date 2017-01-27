@@ -13,7 +13,7 @@
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#">Home</a></li>
-                    <li><a href="http://steel.ericrabil.com/docs/api/latest/">Docs</a></li>
+                    <li><a href="http://ericrabil.github.io/steel-framework/api/latest/">API</a></li>
                     <li><a href="https://www.github.com/EricRabil/steel-framework">GitHub</a></li>
                     <li><a href="https://www.github.com/EricRabil/steel-framework/wiki">Wiki</a></li>
                 </ul>
@@ -23,7 +23,7 @@
                         switch ($this->config['steel']['type']) {
                             case "canary":
                                 ?>
-                                <a style="color:#d35552">Beta!
+                                <a style="color:#d35552">Beta
                                     <?php
                                     break;
                                 case "release-candidate":
@@ -64,7 +64,7 @@
                                             <li class="list-group-item">If you'll be using an Application to hook into Steel, set ['steel']['useApplication'] to true and make sure your ['steel']['application'] is properly entered. Check the wiki for more info.</li>
                                             <li class="list-group-item">If you plan on using sessions, set ['steel']['useSessions'] to true.</li>
                                             <li class="list-group-item">If you plan on using the integrated localizer, set ['steel']['useLang'] to true.</li>
-                                            <li class="list-group-item">The ['resources']['css'] and ['resources']['js'] arrays are arrays that autoload your resources. This requires Subresource Integrity. If you want to add your own, just follow the format of the entries already there.</li>
+                                            <li class="list-group-item">The ['resources']['css'] and ['resources']['js'] arrays are arrays that autoload your resources. This requires Subresource Integrity (hashing of files to prevent unwanted file modification - hashes can be generated <a href="https://srihash.org">here</a>.) If you want to add your own resources, just follow the format of the entries already there.</li>
                                             <li class="list-group-item">Change ['general']['host'] to the domain name you want pages to redirect to. EX: <b>{['general']['host']}/error/404</b> </li>
                                             <li class="list-group-item">Configure ['database'] to meet your database criteria if you plan on using the built in database system.</li>
                                             <li class="list-group-item">Lastly, when you're ready, set ['steel']['postinst'] to false. That will disable this page and let you get to work!</li>
