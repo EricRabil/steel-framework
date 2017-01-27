@@ -13,7 +13,7 @@ class ErrorView implements \Steel\MVC\IView {
     public function render() {
         $this->model->context['error_title'] = $this->model->get_error_title();
         $this->model->context['error_text'] = $this->model->get_error_text();
-        $this->model->steel->render($this->model, 'error.phtml');
+        $this->model->steel->render($this->model, 'error.phtml', new Steel\MVC\RenderConfiguration);
     }
 
 }
