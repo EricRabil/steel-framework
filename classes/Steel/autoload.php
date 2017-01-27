@@ -13,3 +13,4 @@ require $dir . '/MVC/IErrorController.php';
 require $dir . '/MVC/IView.php';
 require $dir . '/Database/IConnection.php';
 require $dir . '/Database/Connection.php';
+require $dir . '/MVC/RenderConfiguration.php';
