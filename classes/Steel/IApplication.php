@@ -10,7 +10,7 @@ namespace Steel;
  */
 interface IApplication {
 
-    public function __constructor(\Steel\Steel $steel);
+    public function __construct(\Steel\Steel $steel);
 
     public function on_load();
 

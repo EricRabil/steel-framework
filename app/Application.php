@@ -9,7 +9,7 @@ class MyCoolApplication implements \Steel\IApplication {
     private $args;
     private $intercepted_classes = ['index'];
 
-    public function __constructor(\Steel\Steel $steel) {
+    public function __construct(\Steel\Steel $steel) {
         $this->steel = $steel;
     }
 

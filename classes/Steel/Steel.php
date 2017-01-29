@@ -88,7 +88,8 @@ class Steel {
         if ($this->config['steel']['useApplication']) {
             require_once $this->config['steel']['application']['filepath'];
             $this->application = new $this->config['steel']['application']['fully_qualified_name']($this);
-            if (!ReflectionClass::implementsInterface($this->application, '\Steel\IApplication')) {
+            $this->reflection = new \ReflectionClass($this->application);
+            if (!$this->reflection('\Steel\IApplication')) {
                 echo get_class($this->application) . " must be implement \Steel\IApplication";
                 exit();
             }
