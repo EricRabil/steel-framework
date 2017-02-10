@@ -82,9 +82,12 @@ class MVCBundle {
         foreach ($this->mvcID->get_dependencies() as $path) {
             require_once $path;
         }
-        require_once $steel->directories['models'] . $mvcidentifier->get_model_name() . '.php';
-        require_once $steel->directories['controllers'] . $mvcidentifier->get_controller_name() . '.php';
-        require_once $steel->directories['views'] . $mvcidentifier->get_view_name() . '.php';
+        $modeldir = (!$mvcidentifier->get_custom_path() ? $steel->directories['models'] : $mvcidentifier->get_custom_path().'/models/');
+        $controllerdir = (!$mvcidentifier->get_custom_path() ? $steel->directories['controllers'] : $mvcidentifier->get_custom_path().'/controllers/');
+        $viewdir = (!$mvcidentifier->get_custom_path() ? $steel->directories['views'] : $mvcidentifier->get_custom_path().'/views/');
+        require_once $modeldir . $mvcidentifier->get_model_name() . '.php';
+        require_once $controllerdir . $mvcidentifier->get_controller_name() . '.php';
+        require_once $viewdir . $mvcidentifier->get_view_name() . '.php';
     }
 
     /**

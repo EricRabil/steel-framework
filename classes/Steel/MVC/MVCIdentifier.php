@@ -58,6 +58,15 @@ class MVCIdentifier {
      * @var array
      */
     private $dependencies;
+    
+    /**
+     * The custom path, if any, to include the assets from.
+     * 
+     * The path must be the parent directory of the 'controllers', 'models' and 'views' folder.
+     *
+     * @var string
+     */
+    private $custompath;
 
     /**
      * Provides all the data necessary to create the identifier.
@@ -70,7 +79,7 @@ class MVCIdentifier {
      * @param array $forbidden The array of forbidden functions.
      * @param array $dependencies The array of required files.
      */
-    public function __construct($uid, $path, $model, $view, $controller, $forbidden = ['__construct', 'main'], $dependencies = []) {
+    public function __construct($uid, $path, $model, $view, $controller, $forbidden = ['__construct', 'main'], $dependencies = [], $custompath = null) {
         $this->uid = $uid;
         $this->path = $path;
         $this->modelName = $model;
@@ -84,6 +93,7 @@ class MVCIdentifier {
         }
         $this->forbiddenPaths = $forbidden;
         $this->dependencies = $dependencies;
+        $this->custompath = $custompath;
     }
 
     /**
@@ -147,6 +157,17 @@ class MVCIdentifier {
      */
     public function get_dependencies() {
         return $this->dependencies;
+    }
+    
+    /**
+     * Get the custom path for this specific MVC.
+     * 
+     * This will override any directory settings you have in Steel.
+     * 
+     * @return string | null
+     */
+    public function get_custom_path(){
+        return (is_null($this->custompath)) ? false : $this->custompath;
     }
 
 }

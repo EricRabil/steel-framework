@@ -142,7 +142,7 @@ class Steel {
     }
 
     private function postinst() {
-        $mvcID = new \Steel\MVC\MVCIdentifier('MVC-POSTINST', 'postinstall', 'PostInstallModel', 'PostInstallView', 'PostInstallController', [], []);
+        $mvcID = new \Steel\MVC\MVCIdentifier('MVC-POSTINST', 'postinstall', 'PostInstallModel', 'PostInstallView', 'PostInstallController', [], [], __DIR__ . '/internal_mvcs/');
         $mvc = new \Steel\MVC\MVCBundle($this, $mvcID);
         $mvc->runMVC();
     }
