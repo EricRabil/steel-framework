@@ -198,8 +198,13 @@ class Steel {
         $errorID = new \Steel\MVC\MVCIdentifier('MVC-ERR', 'error', 'ErrorModel', 'ErrorView', 'ErrorController', ['__construct', 'main'], [$this->dir . '/MVC/IErrorModel.php', $this->dir . '/MVC/IErrorController.php']);
         $mvc = new \Steel\MVC\MVCBundle($this, $errorID);
         $mvc->init();
-        $mvc->get_controller()->parse_error($int, $args);
-        $mvc->get_view()->render();
+        $reflection = new \ReflectionClass($mvc->get_controller());
+        if($reflection->implementsInterface('\Steel\MVC\IErrorController')){ 
+            $mvc->get_controller()->parse_error($int, $args);
+            $mvc->get_view()->render();
+        }else{
+            trigger_error("ErrorController must implement \Steel\MVC\IErrorController", E_USER_ERROR);
+        }
     }
 
     /**
