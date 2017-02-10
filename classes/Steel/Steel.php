@@ -24,6 +24,7 @@ class Steel {
     private $sreheader = "<!-- Steel Runtime Error: ";
     public $application;
     public $database;
+    private $reflection;
     
     public function __construct($directories = ['models' => __DIR__ . '/../../models/', 'views' => __DIR__ . '/../../views/', 'controllers' => __DIR__ . '/../../controllers/']) {
         $this->directories = $this->sanitize_path_map($directories);
@@ -81,6 +82,7 @@ class Steel {
             $this->config['steel']['useApplication'] ? $this->use_app_controller() : $this->application = null;
             $this->process_request();
             $this->initialized = true;
+            $this->reflection = new \ReflectionClass($this->application);
         }
     }
 
@@ -88,7 +90,6 @@ class Steel {
         if ($this->config['steel']['useApplication']) {
             require_once $this->config['steel']['application']['filepath'];
             $this->application = new $this->config['steel']['application']['fully_qualified_name']($this);
-            $this->reflection = new \ReflectionClass($this->application);
             if (!$this->reflection('\Steel\IApplication')) {
                 echo get_class($this->application) . " must be implement \Steel\IApplication";
                 exit();
